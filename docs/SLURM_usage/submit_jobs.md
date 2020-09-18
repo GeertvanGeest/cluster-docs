@@ -126,7 +126,7 @@ srun hostname &
 wait
 ```
 
-In this example, the `hostname` command will start at the same time as the `sleep` command, and they run in parallel.
+In this example, the `hostname` command will start at the same time as the `sleep` command, and they run in parallel. The resources they can use are defined by the options supplied to `sbatch`. The total usage of the parallel job steps will never exceed that.
 
 !!! note "The `wait` command"
     The command `sbatch` closes the job if the terminal is unblocked. But that's exactly what we're doing with `&`! Therefore we use `wait`. This blocks the terminal until all background processes are finished. Otherwise `sbatch` will close the job before it is finished.
