@@ -1,0 +1,27 @@
+site_name: IBU cluster wiki
+
+nav:
+    - Home: index.md
+    - Submit jobs: submit_jobs.md
+
+# Configuration
+theme:
+  name: material
+
+
+# See https://python-markdown.github.io/extensions/ and
+# See https://github.com/Python-Markdown/markdown/wiki/Third-Party-Extensions#Bundles
+#     https://facelessuser.github.io/pymdown-extensions/
+markdown_extensions:
+  - abbr
+  - def_list
+  - footnotes
+  - tables
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - sane_lists
+  - smarty
+  - toc
+  - pymdownx.superfences
+  - attr_list
