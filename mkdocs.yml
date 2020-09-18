@@ -2,7 +2,11 @@ site_name: IBU cluster wiki
 
 nav:
     - Home: index.md
-    - Submit jobs: submit_jobs.md
+    - SLURM usage:
+      - Submit jobs: SLURM_usage/submit_jobs.md
+      - Status monitoring: SLURM_usage/status_monitoring.md
+      - Allocation options: SLURM_usage/allocation_options.md
+      - Special variables: SLURM_usage/slurm_variables.md
 
 # Configuration
 theme:
@@ -10,7 +14,7 @@ theme:
 
 # Repository
 repo_name: gvangeest/cluster_wiki
-repo_url: https://github.com/squidfunk/mkdocs-material
+repo_url: https://gitlab.bioinformatics.unibe.ch/gvangeest/cluster_wiki/
 edit_uri: ""
 
 # See https://python-markdown.github.io/extensions/ and

@@ -1,20 +1,16 @@
-# Welcome to MkDocs
+# IBU cluster documentation
 
-!!! danger "COVID-19 Pandemic: impact on UBELIX operations"
-     The University of Bern switched to emergency operations (minimal presence). The HPC team put in all effort to slow the spread of COVID-19 by working remotly.
+## Introduction
+The IBU cluster the main computer of cluster of the [Interfaculty Bioinformatics Unit](https://www.bioinformatics.unibe.ch/) at the [University of Bern](https://www.unibe.ch/). This documentation is largely based on the documentation of the [Ubelix cluster](https://ubelix.unibe.ch/), and documentation of the [CÉCI cluster](http://www.ceci-hpc.be/)
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+## Working on the IBU cluster & new users
+We assume all users have a good knowledge of UNIX command line, basic knowledge on HPC computing and job submission using [SLURM](https://slurm.schedmd.com/documentation.html). If you are doubting whether you possess the right skills follow the [UNIX e-learning module at SIB](https://edu.sib.swiss/pluginfile.php/2878/mod_resource/content/4/couselab-html/content.html), and one of our courses on HPC computing.
 
-## Commands
+## System infrastructure
+The system consists in total of .. cores spread over 34 compute nodes. These nodes are divided into three different partitions.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+| PARTITION | NODES |
+|-----------|-------|
+| pall      | 30    |
+| pshort    | 2     |
+| phighmem  | 1     |
