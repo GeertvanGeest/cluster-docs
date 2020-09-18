@@ -8,7 +8,7 @@ pip install mkdocs
 ```
 
 and Material:
-```
+```bash
 pip install mkdocs-material
 ```
 
@@ -16,3 +16,5 @@ Host it with:
 ```bash
 mkdocs serve
 ```
+
+Check it out with your browser at [http://localhost:8000/](http://localhost:8000/)
