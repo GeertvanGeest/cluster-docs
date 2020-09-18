@@ -8,6 +8,10 @@ nav:
 theme:
   name: material
 
+# Repository
+repo_name: gvangeest/cluster_wiki
+repo_url: https://github.com/squidfunk/mkdocs-material
+edit_uri: ""
 
 # See https://python-markdown.github.io/extensions/ and
 # See https://github.com/Python-Markdown/markdown/wiki/Third-Party-Extensions#Bundles
