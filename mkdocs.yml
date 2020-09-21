@@ -11,6 +11,9 @@ nav:
 # Configuration
 theme:
   name: material
+  favicon: assets/images/dna-svgrepo-com.svg
+  icon:
+    logo: fontawesome/solid/dna
 
 # Repository
 repo_name: gvangeest/cluster_wiki

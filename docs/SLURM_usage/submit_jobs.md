@@ -6,13 +6,13 @@ A cluster has many resources and many users. Often the demand for resources is h
 
 ## Resource Allocation
 
-Every job submission starts with a resources allocation (nodes, cores, memory). Allocations are created by most users with the `sbatch` and `srun` commands. Most users will use `sbatch` with or without `srun`.
+SLURM can allocate the resources for a job (e.g. nodes, cores and memory). Allocations are created by most users with the `sbatch` and `srun` commands. Most users will use `sbatch` with or without `srun`.
 
 ### sbatch
 The `sbatch` command is used to submit a job script for later execution. SLURM options can be part of the submission command, but they are usually in the job script and prefixed by `#SBATCH`.
 
 #### Basic usage
-A job submission script start with the options for SLURM prefixed with `#SBATCH`. These are used to manage the resources (e.g. memory) and configure the job environment. All the options for job allocation can be found at [Allocation options](allocation_options.md). The SLURM options are followed by the actual job script.
+The first part of a job script contains the options for SLURM prefixed with `#SBATCH`. These are used to manage the resources (e.g. memory) and configure the job environment. All the options for job allocation can be found at [Allocation options](allocation_options.md). The SLURM options are followed by the actual job script.
 
 Here's an example, `first_job.sh`:
 
