@@ -7,7 +7,7 @@ The IBU cluster the main computer of cluster of the [Interfaculty Bioinformatics
 We assume all users have a good knowledge of UNIX command line, basic knowledge on HPC computing and job submission using [SLURM](https://slurm.schedmd.com/documentation.html). If you are doubting whether you possess the right skills follow the [UNIX e-learning module at SIB](https://edu.sib.swiss/pluginfile.php/2878/mod_resource/content/4/couselab-html/content.html), and one of our courses on HPC computing.
 
 ## System infrastructure
-The system consists in total of .. cores spread over 34 compute nodes. These nodes are divided into three different partitions.
+The system consists in total of XX cores spread over 34 compute nodes. These nodes are divided into three different partitions.
 
 | PARTITION | NODES |
 |-----------|-------|
