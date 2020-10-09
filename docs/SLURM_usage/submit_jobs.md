@@ -32,10 +32,10 @@ Submit the job script:
 Submitted batch job 34534
 ```
 
-Jobs get a job ID that is printed to stdout after job submission. In this case it is 34534. We can use this number to track back our job, e.g. for [status monitoring](SLURM_usage/status_monitoring.md).
+Jobs get a job ID that is printed to stdout after job submission. In this case it is 34534. We can use this number to track back our job, e.g. for [status monitoring](status_monitoring.md).
 
 #### Parallelization with arrays
-In bioinformatics, you will often need to run a similar command with a range of parameters, e.g. running an alignment of multiple files with reads. SLURM makes this easy with the `--array` option. The array option generates a [special variable for SLURM](SLURM_usage/slurm_variables.md), namely `$SLURM_ARRAY_TASK_ID`. This variable is replaced for each number given to the array.
+In bioinformatics, you will often need to run a similar command with a range of parameters, e.g. running an alignment of multiple files with reads. SLURM makes this easy with the `--array` option. The array option generates a [special variable for SLURM](slurm_variables.md), namely `$SLURM_ARRAY_TASK_ID`. This variable is replaced for each number given to the array.
 
 Basic usage:
 
@@ -95,7 +95,7 @@ The script below, `jobsteps.sh`, generates two job steps with `srun`:
 srun hostname
 srun sleep 60
 ```
-With default values of `sacct` (more on this at [status monitoring](SLURM_usage/status_monitoring.md)) you can get basic information on job steps. Here you can see which job steps have run, together with their allocated CPUs, status and exit code:
+With default values of `sacct` (more on this at [status monitoring](status_monitoring.md)) you can get basic information on job steps. Here you can see which job steps have run, together with their allocated CPUs, status and exit code:
 
 ```Bash
 [username@binfservms01 ~]$ sbatch jobsteps.sh
