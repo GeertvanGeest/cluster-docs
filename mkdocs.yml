@@ -2,11 +2,12 @@ site_name: IBU cluster wiki
 
 nav:
     - Home: index.md
-    - SLURM usage:
-      - Submit jobs: SLURM_usage/submit_jobs.md
-      - Status monitoring: SLURM_usage/status_monitoring.md
-      - Allocation options: SLURM_usage/allocation_options.md
-      - Special variables: SLURM_usage/slurm_variables.md
+    - Documentation:
+      - SLURM_usage:
+        - Submit jobs: documentation/SLURM_usage/submit_jobs.md
+        - Status monitoring: documentation/SLURM_usage/status_monitoring.md
+        - Allocation options: documentation/SLURM_usage/allocation_options.md
+        - Special variables: documentation/SLURM_usage/slurm_variables.md
     - HPC tutorial:
       - SLURM tutorial: HPC_tutorial/SLURM_tutorial.md
 

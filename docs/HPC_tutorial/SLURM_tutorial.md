@@ -2,9 +2,9 @@
 
 [:fontawesome-solid-file-pdf: Download the presentation](../assets/pdf/SLURM_and_modules.pdf){: .md-button }
 
-## SLURM introduction
+## 1. SLURM introduction
 
-**Exercise:** Create a script named `sleep.sh` that let's the system sleep for 120 seconds (use the command `sleep`).
+**Exercise 1A:** Create a script named `sleep.sh` that let's the system sleep for 120 seconds (use the command `sleep`).
 
 ??? done "Answer"
     Your script should look like this:
@@ -24,7 +24,7 @@ sbatch \
 sleep.sh
 ```
 
-**Exercise**: Rewrite the script `sleep.sh` in a way that you integrate the SLURM options in the script (hint: use `#SBATCH`).
+**Exercise 1B:** Rewrite the script `sleep.sh` in a way that you integrate the SLURM options in the script (hint: use `#SBATCH`).
 
 ??? done "Answers"
     Your script should look like this:
@@ -38,7 +38,7 @@ sleep.sh
     sleep 120
     ```
 
-**Exercise:** Submit your script with integrated `sbatch` options to the cluster. Check out the status of the job (use `squeue`).
+**Exercise 1C:** Submit your script with integrated `sbatch` options to the cluster. Check out the status of the job (use `squeue`).
 
 ??? done "Answer"
     Sumbit it like this:
@@ -55,11 +55,11 @@ sleep.sh
     squeue -A [USERNAME]
     ```
 
-## sbatch options
+## 2. sbatch options
 
-### 1. Required resources
+### 2.1 Required resources
 
-**Exercise:** The command `sleep` requires none or very little computational resources. Modify the options `--time` and `--mem-per-cpu` to minimize the allocation. Submit it to the cluster with `sbatch` to see if it still works.
+**Exercise 2.1A:** The command `sleep` requires none or very little computational resources. Modify the options `--time` and `--mem-per-cpu` to minimize the allocation. Submit it to the cluster with `sbatch` to see if it still works.
 
 ??? done "Answer"
     Your script could look like this:
@@ -73,9 +73,9 @@ sleep.sh
     sleep 120
     ```
 
-### 2. User specific options
+### 2.2 User specific options
 
-**Exercise:** Add options to `sleep.sh` that:
+**Exercise 2.2A:** Add options to `sleep.sh` that:
 
 * gives it a name
 * provide your e-mail address
@@ -102,13 +102,13 @@ Submit it to the cluster, and answer the following questions based on the inform
     sleep 120
     ```
 
-    * The queued time is in the subject first e-mail.
+    * The queued time is in the subject of the first e-mail.
     * The node you can find in the second e-mail at `NodeList`
     * The time the job took is also in the second e-mail at `Elapsed`
 
-### 3. Output and error
+### 2.3 Output and error
 
-**Exercise:** Create a new script called `output_and_error.sh` that:
+**Exercise 2.3A:** Create a new script called `output_and_error.sh` that:
 
 * writes a message to stdout (hint: use `echo`).
 * generates an error by using `ls` on a file that doesn't exist.
@@ -127,7 +127,7 @@ Run it at the login node. Where do stdin and stdout end up?
 
     The output and error end up both at the console.
 
-**Exercise:** Add sbatch options to `output_and_error.sh` that we have learned before (job name, email, cpu, memory and time) with sensible parameters. Now also include `--output` and `--error`. Use `%j` to associate the files with the job ID.
+**Exercise 2.3B:** Add sbatch options to `output_and_error.sh` that we have learned before (job name, email, cpu, memory and time) with sensible parameters. Now also include `--output` and `--error`. Use `%j` to associate the files with the job ID.
 
 Submit it with sbatch. Were your expected files created? Where did stdout and stderr end up?
 
@@ -152,9 +152,9 @@ Submit it with sbatch. Were your expected files created? Where did stdout and st
 
     Stdout should be in `/home/user/output_[JOBID].o` and stderr in `/home/user/error_[JOBID].e`
 
-### 4. Interactive jobs
+## 3 Interactive jobs
 
-**Exercise:** Create interactive job with `srun`. Use the options `--cpus-per-task`, `--mem-per-cpu` and `--time`. Allocate  maximum 1 CPU, 500 MB memory for 5 minutes.
+**Exercise 3A:** Create interactive job with `srun`. Use the options `--cpus-per-task`, `--mem-per-cpu` and `--time`. Allocate  maximum 1 CPU, 500 MB memory for 5 minutes.
 
 * What is your job ID?
 * To which node is your job submitted?
@@ -177,9 +177,9 @@ Submit it with sbatch. Were your expected files created? Where did stdout and st
     [gvangeest@binfservas07 ~]$
     ```
 
-## Modules
+## 4. Modules
 
-**Exercise:** Load the module for the latest version of `minimap2` (look it up here: [https://www.vital-it.ch/services](https://www.vital-it.ch/services)), and check out the help documentation with `minimap2 --help`.
+**Exercise 4A:** Load the module for the latest version of `minimap2` (look it up here: [https://www.vital-it.ch/services](https://www.vital-it.ch/services)), and check out the help documentation with `minimap2 --help`.
 
 ??? done "Answer"
     The command to load minimap2 is:
@@ -187,12 +187,12 @@ Submit it with sbatch. Were your expected files created? Where did stdout and st
     module add UHTS/Analysis/minimap2/2.17
     ```
 
-**Exercise:** Start an interactive job with `srun`, and allocate little resources. Is minimap2 still available in your interactive job?
+**Exercise 4B:** Start an interactive job with `srun`, and allocate little resources. Is minimap2 still available in your interactive job?
 
 ??? done "Answer"
     Yes, it should still be available. If a job is submitted, the current environment of the user is used for that job to run in. However, in a script, it is good practice to always include the `module add` commands, to make your script re-usable and sharable.
 
-**Exercise:** Submit a job to run `minimap2` to align sequence reads of sample 1 to the refence `ecoli-strK12-MG1655.fasta`. Use the sbatch options for cpu, memory, time, job name, e-mail, output and error. This job requires:
+**Exercise 4C:** Submit a job to run `minimap2` to align sequence reads of sample 1 to the refence `ecoli-strK12-MG1655.fasta`. Use the sbatch options for cpu, memory, time, job name, e-mail, output and error. This job requires:
 
 * 3 CPU
 * 200M of memory per cpu
@@ -252,11 +252,11 @@ ecoli_sample1.fastq \
     > $ALIGN_DIR/ecoli_sample1.fastq.sam
     ```
 
-## Job arrays
+## 5 Job arrays
 
-### 1. Jobs in parallel
+### 5.1 Jobs in parallel
 
-**Exercise:** Generate a script `array.sh` with the sbatch options for cpu, memory, time, job name, e-mail, output and error. Now also include the option to initiate an array counting from 10 till 15. In the script, let each element of the array create a file with the `$SLURM_ARRAY_TASK_ID` in it's name in your home directory. In order to check out `squeue`, let the system sleep for 60 seconds after generating the file.
+**Exercise 5.1A:** Generate a script `array.sh` with the sbatch options for cpu, memory, time, job name, e-mail, output and error. Now also include the option to initiate an array counting from 10 till 15. In the script, let each element of the array create a file with the `$SLURM_ARRAY_TASK_ID` in it's name in your home directory. In order to check out `squeue`, let the system sleep for 60 seconds after generating the file.
 
 ??? hint "Hint"
     Your script (without sbatch options) should look something like this:
@@ -290,12 +290,12 @@ ecoli_sample1.fastq \
     * Six jobs were created
     * Six output and six error files are created
 
-### 2. Using UNIX arrays
+### 5.2 Using UNIX arrays
 
-**Exercise:** Align the reads of the three samples in separate jobs. Use the sbatch `--array` option in combination with a UNIX array, and submit it to the cluster. Check out the output files.
+**Exercise 5.2A:** Modify the script in exercise 4C to align the reads of all three samples in separate jobs. Use the sbatch `--array` option in combination with a UNIX array, and submit it to the cluster. Check out the output files.
 
 ??? hint "Hint"
-    Modify the script in the following steps:
+    Modify the script in exercise 4C with the following steps:
 
     * Add the option `--array` to the sbatch options (remember: there are three files and UNIX starts counting at 0)
     * Make the directory with reads the current directory, and generate variable with a UNIX array containing the read files. (Use `()` and `*`, e.g. `FILES=(*.fastq)`)
