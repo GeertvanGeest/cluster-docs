@@ -192,7 +192,7 @@ Submit it with sbatch. Were your expected files created? Where did stdout and st
 ??? done "Answer"
     Yes, it should still be available. If a job is submitted, the current environment of the user is used for that job to run in. However, in a script, it is good practice to always include the `module add` commands, to make your script re-usable and sharable.
 
-**Exercise 4C:** Submit a job to run `minimap2` to align sequence reads of sample 1 to the refence `ecoli-strK12-MG1655.fasta`. Use the sbatch options for cpu, memory, time, job name, e-mail, output and error. This job requires:
+**Exercise 4C:** Submit a job to run `minimap2` to align sequence reads of sample 1 to the reference `ecoli-strK12-MG1655.fasta`. Use the sbatch options for cpu, memory, time, job name, e-mail, output and error. This job requires:
 
 * 3 CPU
 * 200M of memory per cpu
