@@ -142,15 +142,15 @@ Submit it with sbatch. Were your expected files created? Where did stdout and st
     #SBATCH --job-name=output_and_error
     #SBATCH --mail-user=user@students.unibe.ch
     #SBATCH --mail-type=begin,end
-    #SBATCH --output=/home/user/output_%j.o
-    #SBATCH --error=/home/user/error_%j.e
+    #SBATCH --output=/home/[USER]/output_%j.o
+    #SBATCH --error=/home/[USER]/error_%j.e
 
     echo "I am output!"
 
     ls my_nonexisting_file.txt
     ```
 
-    Stdout should be in `/home/user/output_[JOBID].o` and stderr in `/home/user/error_[JOBID].e`
+    Stdout should be in `/home/[USER]/output_[JOBID].o` and stderr in `/home/[USER]/error_[JOBID].e`
 
 ## 3 Interactive jobs
 
@@ -192,6 +192,8 @@ Submit it with sbatch. Were your expected files created? Where did stdout and st
 ??? done "Answer"
     Yes, it should still be available. If a job is submitted, the current environment of the user is used for that job to run in. However, in a script, it is good practice to always include the `module add` commands, to make your script re-usable and sharable.
 
+We'll now be working with some actual biological data. Go to `/data/courses/HPC_tutorial/ecoli/` and see what's in there.
+
 **Exercise 4C:** Submit a job to run `minimap2` to align sequence reads of sample 1 to the reference `ecoli-strK12-MG1655.fasta`. Use the sbatch options for cpu, memory, time, job name, e-mail, output and error. This job requires:
 
 * 3 CPU
@@ -204,11 +206,11 @@ You can find the commands to run `minimap2` below. Add the sbatch options and `m
     Do **not** run this on the head node!
 
 ```sh
-REFERENCE_DIR=/home/gvangeest/Courses/HPC_course/ecoli/reference
-READS_DIR=/home/gvangeest/Courses/HPC_course/ecoli/reads
-ALIGN_DIR=/home/gvangeest/Courses/HPC_course/ecoli/alignment
+REFERENCE_DIR=/data/courses/HPC_tutorial/ecoli/reference
+READS_DIR=/data/courses/HPC_tutorial/ecoli/reads
+ALIGN_DIR=/home/[USER]/ecoli/alignment
 
-mkdir $ALIGN_DIR
+mkdir -p $ALIGN_DIR
 
 cd $READS_DIR
 
@@ -231,14 +233,14 @@ ecoli_sample1.fastq \
     #SBATCH --job-name=align_reads
     #SBATCH --mail-user=user@students.unibe.ch
     #SBATCH --mail-type=begin,end
-    #SBATCH --output=/home/user/output_alignment_%j.o
-    #SBATCH --error=/home/user/error_alignment_%j.e
+    #SBATCH --output=/home/[USER]/output_alignment_%j.o
+    #SBATCH --error=/home/[USER]/error_alignment_%j.e
 
     module add UHTS/Analysis/minimap2/2.17
 
-    REFERENCE_DIR=/home/gvangeest/Courses/HPC_course/ecoli/reference
-    READS_DIR=/home/gvangeest/Courses/HPC_course/ecoli/reads
-    ALIGN_DIR=/home/gvangeest/Courses/HPC_course/ecoli/alignment
+    REFERENCE_DIR=/data/courses/HPC_tutorial/ecoli/reference
+    READS_DIR=/data/courses/HPC_tutorial/ecoli/reads
+    ALIGN_DIR=/home/[USER]/ecoli/alignment
 
     mkdir $ALIGN_DIR
 
@@ -261,7 +263,7 @@ ecoli_sample1.fastq \
 ??? hint "Hint"
     Your script (without sbatch options) should look something like this:
     ```
-    touch /home/user/file_$SLURM_ARRAY_TASK_ID.txt
+    touch /home/[USER]/file_$SLURM_ARRAY_TASK_ID.txt
     sleep 60
     ```
 
@@ -279,11 +281,11 @@ ecoli_sample1.fastq \
     #SBATCH --job-name=arrays
     #SBATCH --mail-user=user@students.unibe.ch
     #SBATCH --mail-type=begin,end
-    #SBATCH --output=/home/user/output_%j.o
-    #SBATCH --error=/home/user/error_%j.e
+    #SBATCH --output=/home/[USER]/output_%j.o
+    #SBATCH --error=/home/[USER]/error_%j.e
     #SBATCH --array=10-15
 
-    touch /home/user/file_$SLURM_ARRAY_TASK_ID.txt
+    touch /home/[USER]/file_$SLURM_ARRAY_TASK_ID.txt
     sleep 60
     ```
 
@@ -313,15 +315,15 @@ ecoli_sample1.fastq \
     #SBATCH --job-name=align_reads
     #SBATCH --mail-user=user@students.unibe.ch
     #SBATCH --mail-type=begin,end
-    #SBATCH --output=/home/user/output_alignment_%j.o
-    #SBATCH --error=/home/user/error_alignment_%j.e
+    #SBATCH --output=/home/[USER]/output_alignment_%j.o
+    #SBATCH --error=/home/[USER]/error_alignment_%j.e
     #SBATCH --array=0-2
 
     module add UHTS/Analysis/minimap2/2.17
 
-    REFERENCE_DIR=/home/gvangeest/Courses/HPC_course/ecoli/reference
-    READS_DIR=/home/gvangeest/Courses/HPC_course/ecoli/reads
-    ALIGN_DIR=/home/gvangeest/Courses/HPC_course/ecoli/alignment
+    REFERENCE_DIR=/data/courses/HPC_tutorial/ecoli/reference
+    READS_DIR=/data/courses/HPC_tutorial/ecoli/reads
+    ALIGN_DIR=/home/[USER]/ecoli/alignment
 
     mkdir $ALIGN_DIR
 
