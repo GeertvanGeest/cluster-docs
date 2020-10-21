@@ -23,7 +23,7 @@ $ ssh-keygen -R binfservms01.unibe.ch -f ~/.ssh/known_host
 **Exercise 1C:** check host key
 
 ```
-$ ssh binfservms01.unibe.ch
+$ ssh username@binfservms01.unibe.ch
 ```
 
 ??? done "Result"
@@ -32,20 +32,21 @@ $ ssh binfservms01.unibe.ch
     ECDSA key fingerprint is SHA256:Yz6JYkqIEHYni+EJgEwQIPqlz0IEUBQLHEQVU8nEwSY.
     Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
     Warning: Permanently added 'binfservms01.unibe.ch' (ECDSA) to the list of known hosts.
+    username@binfservms01.unibe.ch's password: 
     Last login: Wed Oct 21 16:57:39 2020 from dhcp-100-237.vpn.unibe.ch
-    [berthier@binfservms01 ~]$ 
+    [username@binfservms01 ~]$ 
     ```
 
 **Exercise 1D:** check content of .ssh directory on the server:
 
 ```
-[berthier@binfservms01 ~]$ ls .ssh
+[username@binfservms01 ~]$ ls .ssh
 ```
 
 ??? done "Result"
     ```
     ls: cannot access .ssh: No such file or directory
-    [berthier@binfservms01 ~]$ exit
+    [username@binfservms01 ~]$ exit
     ```
 
 
