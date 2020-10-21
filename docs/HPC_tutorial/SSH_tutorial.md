@@ -7,11 +7,12 @@
 ```
 $ ssh-keygen -F binfservms01.unibe.ch -l -f ~/.ssh/known_host
 ```
+
 ??? done "Result"
-```
-# Host binfservms01.unibe.ch found: line 640 
-binfservms01.unibe.ch ECDSA SHA256:Yz6JYkqIEHYni+EJgEwQIPqlz0IEUBQLHEQVU8nEwSY
-```
+    ```
+    # Host binfservms01.unibe.ch found: line 640 
+    binfservms01.unibe.ch ECDSA SHA256:Yz6JYkqIEHYni+EJgEwQIPqlz0IEUBQLHEQVU8nEwSY
+    ```
     
 **Exercise 1B:** remove existing host key
 
@@ -24,26 +25,28 @@ $ ssh-keygen -R binfservms01.unibe.ch -f ~/.ssh/known_host
 ```
 $ ssh binfservms01.unibe.ch
 ```
+
 ??? done "Result"
-```
-The authenticity of host 'binfservms01.unibe.ch (130.92.199.95)' can't be established.
-ECDSA key fingerprint is SHA256:Yz6JYkqIEHYni+EJgEwQIPqlz0IEUBQLHEQVU8nEwSY.
-Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
-Warning: Permanently added 'binfservms01.unibe.ch' (ECDSA) to the list of known hosts.
-Last login: Wed Oct 21 16:57:39 2020 from dhcp-100-237.vpn.unibe.ch
-[berthier@binfservms01 ~]$ 
-```
+    ```
+    The authenticity of host 'binfservms01.unibe.ch (130.92.199.95)' can't be established.
+    ECDSA key fingerprint is SHA256:Yz6JYkqIEHYni+EJgEwQIPqlz0IEUBQLHEQVU8nEwSY.
+    Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+    Warning: Permanently added 'binfservms01.unibe.ch' (ECDSA) to the list of known hosts.
+    Last login: Wed Oct 21 16:57:39 2020 from dhcp-100-237.vpn.unibe.ch
+    [berthier@binfservms01 ~]$ 
+    ```
 
 **Exercise 1D:** check content of .ssh directory on the server:
 
 ```
 [berthier@binfservms01 ~]$ ls .ssh
 ```
+
 ??? done "Result"
-```
-ls: cannot access .ssh: No such file or directory
-[berthier@binfservms01 ~]$ exit
-```
+    ```
+    ls: cannot access .ssh: No such file or directory
+    [berthier@binfservms01 ~]$ exit
+    ```
 
 
 
@@ -54,63 +57,73 @@ ls: cannot access .ssh: No such file or directory
 ```
 $ ssh-keygen
 ```
+
 ??? done "Result"
-```
-Generating public/private rsa key pair.
-Enter file in which to save the key (/home/pierre/.ssh/id_rsa): 
-Enter passphrase (empty for no passphrase): 
-Enter same passphrase again: 
-Your identification has been saved in /home/pierre/.ssh/id_rsa
-Your public key has been saved in /home/pierre/.ssh/id_rsa.pub
-The key fingerprint is:
-SHA256:erkOXJp0loytm7+cbfk7rs9dDzaEtvP6GCmR9Bt7lvg pierre@pierre-laptop
-The key's randomart image is:
-+---[RSA 3072]----+
-|                 |
-|                 |
-|          .      |
-|       + o o .   |
-|      o S o = .  |
-|     o O . o O . |
-|      B o ..O B .|
-|       * +oo.@ +.|
-|      ooBoo=O=E .|
-+----[SHA256]-----+
-```
+    ```
+    Generating public/private rsa key pair.
+    Enter file in which to save the key (/home/pierre/.ssh/id_rsa): 
+    Enter passphrase (empty for no passphrase): 
+    Enter same passphrase again: 
+    Your identification has been saved in /home/pierre/.ssh/id_rsa
+    Your public key has been saved in /home/pierre/.ssh/id_rsa.pub
+    The key fingerprint is:
+    SHA256:erkOXJp0loytm7+cbfk7rs9dDzaEtvP6GCmR9Bt7lvg pierre@pierre-laptop
+    The key's randomart image is:
+    +---[RSA 3072]----+
+    |                 |
+    |                 |
+    |          .      |
+    |       + o o .   |
+    |      o S o = .  |
+    |     o O . o O . |
+    |      B o ..O B .|
+    |       * +oo.@ +.|
+    |      ooBoo=O=E .|
+    +----[SHA256]-----+
+    ```
 
 **Exercise 2B:** look at the generated files
 
 ```
 $ ls -l .ssh
 ```
+
 ??? done "Result"
-```
--rw------- 1 pierre pierre 2.6K Okt 21 17:01 id_rsa
--rw-r--r-- 1 pierre pierre  574 Okt 21 17:01 id_rsa.pub
-```
+    ```
+    -rw------- 1 pierre pierre 2.6K Okt 21 17:01 id_rsa
+    -rw-r--r-- 1 pierre pierre  574 Okt 21 17:01 id_rsa.pub
+    ```
 
 ```
 $ cat .ssh/id_rsa.pub
 ```
+
 ??? done "Result"
-```
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQD38aCe4ICZZ6kPrxlAYruBNhguvHv5YQ2OPjL5Bvs2lzAtV1JPu+QQV9F5SUE3AJc7jh9yn/Agkrg4pMC9EDObWKTl5lg6ritcGtzQMfXYszEevMNRv8ukV6nCt6WGfyjK4l61nXiuXxTv1RvGzJxAefdUGYMvMkkZOdkMKGKTxwE/xmyXJVYUPcEJEqGt4TSD3nC2Wg8GSp1L+MDpI5626UEVVafEzuOIbbHBmQMPhB+0MevP+ZsXzD0Dz1sWWI0wGlnU9W9a1gZ+QNiIeWCvKtNuxXFKB98338W3YQqE+dk/YwwSB1/jeUHIRTEVSyKaIcr42s2Hg9E2TEVZhmZM4vFJb8nozL8Hu3ZKAHqG1JR3FE1mqJ8kOHnWZiGNf3pQwUe3cgN7c5bsZPEl8VJGwuDArQSAFik+nmrNgQlcodIHYnzY6DtbOMnZUpWuVO1zfQQkPGBbGfdDuNT2cvxAkM1RkWtnCT5JdOSn//4njp6aCfg38SopbDn3tfJcJTM= pierre@pierre-laptop
-```
+    ```
+    ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQD38aCe4ICZZ6kPrxlAYruBNhguvHv5YQ2OPj
+    L5Bvs2lzAtV1JPu+QQV9F5SUE3AJc7jh9yn/Agkrg4pMC9EDObWKTl5lg6ritcGtzQMfXYszEe
+    vMNRv8ukV6nCt6WGfyjK4l61nXiuXxTv1RvGzJxAefdUGYMvMkkZOdkMKGKTxwE/xmyXJVYUPc
+    EJEqGt4TSD3nC2Wg8GSp1L+MDpI5626UEVVafEzuOIbbHBmQMPhB+0MevP+ZsXzD0Dz1sWWI0w
+    GlnU9W9a1gZ+QNiIeWCvKtNuxXFKB98338W3YQqE+dk/YwwSB1jeUHIRTEVSyKaIcr42s2Hg9E
+    2TEVZhmZM4vFJb8nozL8Hu3ZKAHqG1JR3FE1mqJ8kOHnWZiGNf3pQwUe3cgN7c5bsZPEl8VJGw
+    uDArQSAFik+nmrNgQlcodIHYnzY6DtbOMnZUpWuVO1zfQQkPGBbGfdDuNT2cvxAkM1RkWtnCT5
+    JdOSn//4njp6aCfg38SopbDn3tfJcJTM= pierre@pierre-laptop
+    ```
 
 ```
 $ cat .ssh/id_rsa
 ```
 ??? done "Result"
-```
------BEGIN OPENSSH PRIVATE KEY-----
-b3BlbnNzaC1rZXktdjEAAAAACmFlczI1Ni1jdHIAAAAGYmNyeXB0AAAAGAAAABAFGhqvzt
-qUP/ybuCOapCXgAAAAEAAAAAEAAAGXAAAAB3NzaC1yc2EAAAADAQABAAABgQD38aCe4ICZ
-Z6kPrxlAYruBNhguvHv5YQ2OPjL5Bvs2lzAtV1JPu+QQV9F5SUE3AJc7jh9yn/Agkrg4pM
-...
-/mOQjFg57Pn4XdswU+/gX3mbMWbZXJxIdUO1OIlCKolSe2dJA2CfYUv0XpCIWLe36Iiczn
-NqTpG7AzfMNH/Ok9Ojr2pqrQnSI=
------END OPENSSH PRIVATE KEY-----
-```
+    ```
+    -----BEGIN OPENSSH PRIVATE KEY-----
+    b3BlbnNzaC1rZXktdjEAAAAACmFlczI1Ni1jdHIAAAAGYmNyeXB0AAAAGAAAABAFGhqvzt
+    qUP/ybuCOapCXgAAAAEAAAAAEAAAGXAAAAB3NzaC1yc2EAAAADAQABAAABgQD38aCe4ICZ
+    Z6kPrxlAYruBNhguvHv5YQ2OPjL5Bvs2lzAtV1JPu+QQV9F5SUE3AJc7jh9yn/Agkrg4pM
+    ...
+    /mOQjFg57Pn4XdswU+/gX3mbMWbZXJxIdUO1OIlCKolSe2dJA2CfYUv0XpCIWLe36Iiczn
+    NqTpG7AzfMNH/Ok9Ojr2pqrQnSI=
+    -----END OPENSSH PRIVATE KEY-----
+    ```
 
 
 
