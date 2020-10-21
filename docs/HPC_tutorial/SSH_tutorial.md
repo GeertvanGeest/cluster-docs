@@ -62,13 +62,13 @@ $ ssh-keygen
 ??? done "Result"
     ```
     Generating public/private rsa key pair.
-    Enter file in which to save the key (/home/pierre/.ssh/id_rsa): 
+    Enter file in which to save the key (/home/username/.ssh/id_rsa): 
     Enter passphrase (empty for no passphrase): 
     Enter same passphrase again: 
-    Your identification has been saved in /home/pierre/.ssh/id_rsa
-    Your public key has been saved in /home/pierre/.ssh/id_rsa.pub
+    Your identification has been saved in /home/username/.ssh/id_rsa
+    Your public key has been saved in /home/username/.ssh/id_rsa.pub
     The key fingerprint is:
-    SHA256:erkOXJp0loytm7+cbfk7rs9dDzaEtvP6GCmR9Bt7lvg pierre@pierre-laptop
+    SHA256:erkOXJp0loytm7+cbfk7rs9dDzaEtvP6GCmR9Bt7lvg xxxxxx
     The key's randomart image is:
     +---[RSA 3072]----+
     |                 |
@@ -108,12 +108,13 @@ $ cat .ssh/id_rsa.pub
     GlnU9W9a1gZ+QNiIeWCvKtNuxXFKB98338W3YQqE+dk/YwwSB1jeUHIRTEVSyKaIcr42s2Hg9E
     2TEVZhmZM4vFJb8nozL8Hu3ZKAHqG1JR3FE1mqJ8kOHnWZiGNf3pQwUe3cgN7c5bsZPEl8VJGw
     uDArQSAFik+nmrNgQlcodIHYnzY6DtbOMnZUpWuVO1zfQQkPGBbGfdDuNT2cvxAkM1RkWtnCT5
-    JdOSn//4njp6aCfg38SopbDn3tfJcJTM= pierre@pierre-laptop
+    JdOSn//4njp6aCfg38SopbDn3tfJcJTM= xxxxxxxxx
     ```
 
 ```
 $ cat .ssh/id_rsa
 ```
+
 ??? done "Result"
     ```
     -----BEGIN OPENSSH PRIVATE KEY-----
@@ -133,10 +134,63 @@ $ cat .ssh/id_rsa
 
 **Exercise 3A:** use ssh-copy-id to copy your public key to the server
 
+```
+$ ssh-copy-id username@binfservms01.unibe.ch
+```
+
+??? done "Result"
+    ```
+    /usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/username/.ssh/id_rsa.pub"
+    /usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+    /usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+    username@binfservms01.unibe.ch's password: 
+
+    Number of key(s) added: 1
+
+    Now try logging into the machine, with:   "ssh 'username@binfservms01.unibe.ch'"
+    and check to make sure that only the key(s) you wanted were added.
+    ```
+    
 **Exercise 3B:** login to the server without password
+
+```
+$ ssh username@binfservms01.unibe.ch
+```
+
+??? done "Result"
+    ```
+    Last login: Wed Oct 21 18:47:46 2020 from dhcp-99-231.vpn.unibe.ch
+    [username@binfservms01 ~]$ 
+    ```
+    
 
 **Exercise 3B:** check content of .ssh on the server
 
+```
+[username@binfservms01 ~]$ ls -l .ssh
+```
+
+??? done "Result"
+    ```
+    -rw-------. 1 username username 988 Oct 21 18:48 authorized_keys
+    ```
+    
+```
+[username@binfservms01 ~]$ cat .ssh/authorized_keys
+```
+
+??? done "Result"
+    ```
+    ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQD38aCe4ICZZ6kPrxlAYruBNhguvHv5YQ2OPj
+    L5Bvs2lzAtV1JPu+QQV9F5SUE3AJc7jh9yn/Agkrg4pMC9EDObWKTl5lg6ritcGtzQMfXYszEe
+    vMNRv8ukV6nCt6WGfyjK4l61nXiuXxTv1RvGzJxAefdUGYMvMkkZOdkMKGKTxwE/xmyXJVYUPc
+    EJEqGt4TSD3nC2Wg8GSp1L+MDpI5626UEVVafEzuOIbbHBmQMPhB+0MevP+ZsXzD0Dz1sWWI0w
+    GlnU9W9a1gZ+QNiIeWCvKtNuxXFKB98338W3YQqE+dk/YwwSB1jeUHIRTEVSyKaIcr42s2Hg9E
+    2TEVZhmZM4vFJb8nozL8Hu3ZKAHqG1JR3FE1mqJ8kOHnWZiGNf3pQwUe3cgN7c5bsZPEl8VJGw
+    uDArQSAFik+nmrNgQlcodIHYnzY6DtbOMnZUpWuVO1zfQQkPGBbGfdDuNT2cvxAkM1RkWtnCT5
+    JdOSn//4njp6aCfg38SopbDn3tfJcJTM= xxxxxxxxx
+    ```
+    
 
 ### SSH-Agent
 
