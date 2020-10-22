@@ -1,6 +1,12 @@
 ## Public keys best practices
 
-### Verify host public key
+
+### 0. Prerequisites
+
+- be on Unibe or UniFR Network  (maybe start VPN)
+
+
+### 1. Verify host public key
 
 **Exercise 1A:** check for existing host key
 
@@ -51,7 +57,7 @@ $ ssh username@binfservms01.unibe.ch
 
 
 
-### generate user keypair
+### 2. Generate user keys pair
 
 **Exercise 2A:** use `ssh-keygen` command to generate a key and encrypt the private key with a passphrase
 
@@ -59,6 +65,9 @@ $ ssh username@binfservms01.unibe.ch
 $ ssh-keygen
 ```
 
+!!! warning "Warning"
+    Do not enter an empty passphrase!
+    
 ??? done "Result"
     ```
     Generating public/private rsa key pair.
@@ -130,7 +139,7 @@ $ cat .ssh/id_rsa
 
 
 
-### Copy Public Key to server
+### 3. Copy Public Key to server
 
 **Exercise 3A:** use ssh-copy-id to copy your public key to the server
 
@@ -193,7 +202,7 @@ $ ssh username@binfservms01.unibe.ch
     ```
     
 
-### SSH-Agent
+### 4. SSH-Agent
 
 **Exercise 4A:** start ssh-agent
 
