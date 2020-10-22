@@ -53,7 +53,7 @@ $ ssh username@binfservms01.unibe.ch
 
 ### generate user keypair
 
-**Exercise 2A:** use `ssh-keygen` command to generate a key and encrypt the private key
+**Exercise 2A:** use `ssh-keygen` command to generate a key and encrypt the private key with a passphrase
 
 ```
 $ ssh-keygen
@@ -91,8 +91,8 @@ $ ls -l .ssh
 
 ??? done "Result"
     ```
-    -rw------- 1 pierre pierre 2.6K Okt 21 17:01 id_rsa
-    -rw-r--r-- 1 pierre pierre  574 Okt 21 17:01 id_rsa.pub
+    -rw------- 1 username username 2.6K Okt 21 17:01 id_rsa
+    -rw-r--r-- 1 username username  574 Okt 21 17:01 id_rsa.pub
     ```
 
 ```
@@ -159,6 +159,7 @@ $ ssh username@binfservms01.unibe.ch
 
 ??? done "Result"
     ```
+    Enter passphrase for key '/home/username/.ssh/id_rsa': 
     Last login: Wed Oct 21 18:47:46 2020 from dhcp-99-231.vpn.unibe.ch
     [username@binfservms01 ~]$ 
     ```
@@ -196,9 +197,40 @@ $ ssh username@binfservms01.unibe.ch
 
 **Exercise 4A:** start ssh-agent
 
+```
+$ eval $(ssh-agent)
+```
+
+??? done "Result"
+    ```
+Agent pid 13868
+    ```
+    
 **Exercise 4B:** add a key to ssh-agent
+
+```
+$ ssh-add .ssh/id_rsa
+```
+
+??? done "Result"
+    ```
+Enter passphrase for .ssh/id_rsa: 
+Identity added: .ssh/id_rsa (username@laptop)
+    ```
+    
 
 **Exercise 4C:** use ssh-agent
 
+
+```
+$ ssh username@binfservms01.unibe.ch
+```
+
+??? done "Result"
+    ```
+    Last login: Wed Oct 21 18:47:46 2020 from dhcp-99-231.vpn.unibe.ch
+    [username@binfservms01 ~]$    
+    ```
+    
 
 
