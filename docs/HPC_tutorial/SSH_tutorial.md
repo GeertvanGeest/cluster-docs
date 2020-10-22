@@ -11,7 +11,7 @@
 - have a "IBU cluster" account (have you received the "Welcome to IBU Cluster" email?
 
 ??? alert "Welcome to IBU Cluster email"
-    Dear Joe
+    Dear John
     
     we have created an account for you on the IBU computing cluster.
     
