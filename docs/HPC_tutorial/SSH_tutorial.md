@@ -1,5 +1,8 @@
 ## Public keys best practices
 
+### Material
+
+[:fontawesome-solid-file-pdf: Download the presentation](../assets/pdf/hpc_intro.pdf){: .md-button }
 
 ### 0. Prerequisites
 
