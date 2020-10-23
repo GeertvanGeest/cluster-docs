@@ -11,7 +11,7 @@
 
 ## 1. SLURM introduction
 
-**Exercise 1A:** Create a script named `sleep.sh` that let's the system sleep for 120 seconds (use the command `sleep`).
+**Exercise 1A:** Create a script named `sleep.sh` that lets the system sleep for 120 seconds (use the command `sleep`).
 
 ??? done "Answer"
     Your script should look like this:
