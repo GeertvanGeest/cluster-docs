@@ -1,3 +1,10 @@
+
+## How we work:
+
+* For each chapter (1 till 5) we'll have a few slides of presentation and exercises. We'll discuss the exercises and continue with the next chapter when most of you have finished the exercises of the current chapter.
+* You're doing this to learn, so don't be tempted to look at the answers to early. If the given answer doesn't correspond to your answer, try to understand why.
+* If you're stuck, ask your colleagues first. Someone who has just learned, is often better able to explain it than a teacher.
+
 ## Material
 
 [:fontawesome-solid-file-pdf: Download the presentation](../assets/pdf/SLURM_and_modules.pdf){: .md-button }
