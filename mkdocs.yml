@@ -9,6 +9,7 @@ nav:
         - Allocation options: documentation/SLURM_usage/allocation_options.md
         - Special variables: documentation/SLURM_usage/slurm_variables.md
     - HPC tutorial:
+      - SSH Tutorial: HPC_tutorial/SSH_tutorial.md
       - SLURM tutorial: HPC_tutorial/SLURM_tutorial.md
 
 # Configuration
