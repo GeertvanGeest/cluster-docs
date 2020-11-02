@@ -3,12 +3,25 @@ site_name: IBU cluster wiki
 nav:
     - Home: index.md
     - Documentation:
-      - SLURM_usage:
+      - Storage: documentation/storage.md
+      - Resources:
+        - Software modules: documentation/resources/software_modules.md
+        - Servers: documentation/resources/servers.md
+        - Reference genomes: documentation/resources/reference_genomes.md
+        - Share files: documentation/resources/share_files.md
+      - SLURM usage:
         - Submit jobs: documentation/SLURM_usage/submit_jobs.md
         - Status monitoring: documentation/SLURM_usage/status_monitoring.md
         - Allocation options: documentation/SLURM_usage/allocation_options.md
         - Special variables: documentation/SLURM_usage/slurm_variables.md
-    - HPC tutorial:
+      - Quota: documentation/quota.md
+      - Projects:
+        - Initiation: documentation/projects/project_initiation.md
+        - Rights: documentation/projects/rights.md
+    - HOWTOs:
+      - Mount cluster as network drive: HOWTOs/mount_cluster.md
+      - Work on gitlab: HOWTOs/gitlab.md
+    - Tutorials:
       - SSH Tutorial: HPC_tutorial/SSH_tutorial.md
       - SLURM tutorial: HPC_tutorial/SLURM_tutorial.md
 
@@ -18,6 +31,8 @@ theme:
   favicon: assets/images/dna-svgrepo-com.svg
   icon:
     logo: fontawesome/solid/dna
+  features:
+    - navigation.tabs
 
 # Repository
 repo_name: gvangeest/cluster_wiki
