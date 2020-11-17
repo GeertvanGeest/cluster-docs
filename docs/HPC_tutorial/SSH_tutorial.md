@@ -6,24 +6,30 @@
 
 ### 0. Prerequisites
 
-- be on Unibe or UniFR Network  (maybe start VPN)
+Before you start his tutorial, you will need to:
 
-- have a "IBU cluster" account (have you received the "Welcome to IBU Cluster" email?
+* be on Unibe or UniFR Network  (maybe start [VPN](https://www.unibe.ch/universitaet/campus__und__infrastruktur/rund_um_computer/internetzugang/zugang_auf_interne_ressourcen_mit_vpn/index_ger.html))
+* have a "IBU cluster" account (have you received the "Welcome to IBU Cluster" email, looking like this:
 
-??? alert "Welcome to IBU Cluster email"
-    Dear John
+> **Welcome to IBU Cluster email**
+>
+>  Dear John
+>
+>  we have created an account for you on the IBU computing cluster.
+>
+>  Login Name: jdoe
+>
+>  Password will be sent in a separate email.  
+>
+>  ...
 
-    we have created an account for you on the IBU computing cluster.
-
-    Login Name: jdoe
-
-    Password will be sent in a separate email.  
-    ...
-
-- in the following tutorial, prompts starting with `$` are on your local computer; prompts starting with `[<hpcuser>@binfservms01 ~]$ ` are on the remote server.
+!!! Note
+    In this following tutorial, prompts starting with `$` are on your local computer; prompts starting with `[<hpcuser>@binfservms01 ~]$ ` are on the remote server.
 
 
 ### 1. Verify host public key
+
+!!! bug "This part may needs some elaboration"
 
 **Exercise 1A:** check for existing host key
 
@@ -69,7 +75,6 @@ $ ssh-keygen -R binfservms01.unibe.ch -f ~/.ssh/known_hosts
 
 !!! warning "Warning"
     Replace *<hpcuser\>* with your Login Name on the server.
-
 
 
 ```
@@ -135,6 +140,9 @@ Enter your password:
 ### 2. Generate user keys pair
 
 **Exercise 2A:** use `ssh-keygen` command to generate a key and encrypt the private key with a passphrase
+
+!!! warning
+    Below should be executed on your local computer
 
 ```
 $ ssh-keygen
