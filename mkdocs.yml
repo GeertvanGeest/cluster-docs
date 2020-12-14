@@ -14,7 +14,6 @@ nav:
         - Status monitoring: documentation/SLURM_usage/status_monitoring.md
         - Allocation options: documentation/SLURM_usage/allocation_options.md
         - Special variables: documentation/SLURM_usage/slurm_variables.md
-      - Quota: documentation/quota.md
       - Projects:
         - Initiation: documentation/projects/project_initiation.md
         - Rights: documentation/projects/rights.md

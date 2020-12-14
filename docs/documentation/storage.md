@@ -1,3 +1,25 @@
+
+## User storage
+
+Each user has storage capacity at `/home/<user>/` and at `/data/users/<user>`. Storage at `/home/` is limited to 20 GB per user, while `/data/users/` has a limit of 4 TB per user. If you don't work with projects (at `/data/projects`), it is therefore recommended to use `/data/users` for storing large files, while using `/home/` only if necessary.
+
+You can get your diskquota with:
+
+```sh
+lsquota
+```
+
+This will give you:
+
+```
+Disk quotas for user berthier (uid 622):  
+Filesystem  Used  S-Quota  H-Quota  Grace  #Files  Quota   Limit  Grace  
+/home         4G      20G      21G   none      9k     0k      0k   none
+/data/users   102G*   100G     105G     7d      3k     0k      0k   none
+```
+
+Where `S-Quota` indicaties soft quota, and `H-Quota` indicates hard quota. If you exceed the soft quota, (indicated by \*), you have 7 days to clean up. Otherwise, you will not be able to write to these folders.
+
 ## Temporary backup solution
 
 !!! bug "This is possibly (partly) deprecated"
