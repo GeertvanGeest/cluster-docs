@@ -1,4 +1,6 @@
 site_name: IBU cluster wiki
+site_url: https://gvangeest.gitlab.io/
+site_dir: public
 
 nav:
     - Home: index.md
