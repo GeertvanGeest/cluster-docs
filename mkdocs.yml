@@ -1,7 +1,7 @@
 site_name: IBU cluster wiki
 
 nav:
-    - Home: index.md
+    - Home: index.md 
     - Documentation:
       - Storage: documentation/storage.md
       - Resources:
