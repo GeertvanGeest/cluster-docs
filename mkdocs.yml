@@ -23,6 +23,8 @@ nav:
     - Tutorials:
       - SSH Tutorial: HPC_tutorial/SSH_tutorial.md
       - SLURM tutorial: HPC_tutorial/SLURM_tutorial.md
+    - Coding Best Practices: 
+      - Coding Best Practices: coding_best_practices/best_practices.md
 
 # Configuration
 theme:
