@@ -10,7 +10,7 @@ nav:
         - Pipelines and Scripts: documentation/resources/pipelines_scripts.md
         - Reference genomes: documentation/resources/reference_genomes.md
         - Share files: documentation/resources/share_files.md
-        - RNA-seq: documentation/resources/RNA-seq.md
+        - Analysis: documentation/resources/analysis.md
       - SLURM usage:
         - Submit jobs: documentation/SLURM_usage/submit_jobs.md
         - Status monitoring: documentation/SLURM_usage/status_monitoring.md
