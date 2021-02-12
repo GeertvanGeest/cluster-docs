@@ -1,14 +1,16 @@
 site_name: IBU cluster wiki
 
 nav:
-    - Home: index.md 
+    - Home: index.md
     - Documentation:
       - Storage: documentation/storage.md
       - Resources:
         - Software modules: documentation/resources/software_modules.md
         - Servers: documentation/resources/servers.md
+        - Pipelines and Scripts: documentation/resources/pipelines_scripts.md
         - Reference genomes: documentation/resources/reference_genomes.md
         - Share files: documentation/resources/share_files.md
+        - Analysis: documentation/resources/analysis.md
       - SLURM usage:
         - Submit jobs: documentation/SLURM_usage/submit_jobs.md
         - Status monitoring: documentation/SLURM_usage/status_monitoring.md
@@ -23,7 +25,7 @@ nav:
     - Tutorials:
       - SSH Tutorial: HPC_tutorial/SSH_tutorial.md
       - SLURM tutorial: HPC_tutorial/SLURM_tutorial.md
-    - Coding Best Practices: 
+    - Coding Best Practices:
       - Coding Best Practices: coding_best_practices/best_practices.md
 
 # Configuration
