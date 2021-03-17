@@ -15,7 +15,7 @@ https://shiny.bioinformatics.unibe.ch. Contact: Pierre Berthier. See [ShinyServe
 
 ## Ftp server
 
-binfftp01.unibe.ch. Contact: Rémy Bruggmann. See [ftpServer.pdf](../assets/pdf/ftpServer.pdf) for instructions on how to transfer files.
+binfftp01.unibe.ch. Contact: Rémy Bruggmann. See [ftpServer.pdf](../../assets/pdf/ftpServer.pdf) for instructions on how to transfer files.
 
 ## IBU cloud
 
