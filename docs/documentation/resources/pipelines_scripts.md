@@ -5,7 +5,7 @@ We use RNA sequencing to test for differential gene expression between experimen
 
 For details please see [Bulk RNA-seq bundle](https://www.bioinformatics.unibe.ch/services/offers/bundles/index_eng.html)
 
-* GitLab repository: [hts_rnaseqpipeline_slurm](https://binfgitlab.unibe.ch/ikeller/hts_rnaseqpipeline_slurm)
+* GitLab repository: [hts_rnaseqpipeline_slurm](https://gitlab.bioinformatics.unibe.ch/ikeller/hts_rnaseqpipeline_slurm)
 * Please see here for an overview of all RNA-seq library prep kits that are used by the NGS platform (17.9.2018): [RNA-seq Protocols](RNA-seq.md#Protocols)
 * Contact: Irene Keller
 
@@ -23,7 +23,7 @@ In a next step, the variants are annotated using the Ensembl Variant Effect Pred
 
 For details please see [Human WGS/WES bundle](https://www.bioinformatics.unibe.ch/services/offers/bundles/index_eng.html)
 
-* GitLab repository: [hts_gatkpipeline_slurm](https://binfgitlab.unibe.ch/ikeller/hts_gatkpipeline_slurm)
+* GitLab repository: [hts_gatkpipeline_slurm](https://gitlab.bioinformatics.unibe.ch/ikeller/hts_gatkpipeline_slurm)
 * Contact: Irene Keller
 
 #### Somatic variant calling (human only)
@@ -40,7 +40,7 @@ Note: The pipeline runs a Maaslin analysis testing for associations between taxa
 
 For details please see [Metagenomics bundle](https://www.bioinformatics.unibe.ch/services/offers/bundles/index_eng.html)
 
-* GitLab repository: [hts_metagenomicspipeline_slurm](https://binfgitlab.unibe.ch/ikeller/hts_metagenomicspipeline_slurm)
+* GitLab repository: [hts_metagenomicspipeline_slurm](https://gitlab.bioinformatics.unibe.ch/ikeller/hts_metagenomicspipeline_slurm)
 * Contact: Irene Keller
 
 #### Metagenomics: Mutation analysis

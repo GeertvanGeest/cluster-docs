@@ -1,12 +1,14 @@
 # How to work with GitLab
 
-Based on https://www.youtube.com/watch?v=7p0hrpNaJ14
+Based on this youtube video:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7p0hrpNaJ14" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### 1) Log in
 
 [https://gitlab.bioinformatics.unibe.ch](https://gitlab.bioinformatics.unibe.ch/)
 
-User name and password are the same as for the cluster. Note than older https://binfgitlab.unibe.ch still exists for historical/compatibility reasons.
+User name and password are the same as for the cluster. The older https://binfgitlab.unibe.ch still exists for historical/compatibility reasons.
 
 ### 2) Create a new project in GitLab
 

@@ -1,4 +1,4 @@
-# Linux:
+## Linux
 
 1.  Install `sshfs`: `sudo apt install sshfs` or `sudo dnf install sshfs`
 2.  Create a mount directory: `mkdir ~/cluster`
@@ -6,7 +6,7 @@
     *   Note: Add these options if you experience performance problems: `-oauto_cache,reconnect`
 4.  Unmount: `fusermount -zu ~/cluster`
 
-# Mac:
+## Mac
 
 1.  Install [sshfs and FUSE](https://osxfuse.github.io/)
 2.  Create a mount directory `mkdir myMountDir`
@@ -14,9 +14,9 @@
 
 `-o defer_permissions` might be needed to get access to folders outside of your home dir, see this post: [https://github.com/fabiokr/vagrant-sshfs/issues/33](https://github.com/fabiokr/vagrant-sshfs/issues/33)
 
-# Windows:
+## Windows
 
-## Attention! (This problem only occurs on Windows)
+### Attention! (This problem only occurs on Windows)
 
 Be careful when deleting files with `sshfs`! Let&#39;s say you have these files and folders:
 
@@ -49,7 +49,7 @@ The folder `test` and its link were not deleted, **sshfs deleted the target file
 
 <figure class="image"><img src="/api/v3/attachments/328/content" alt="Side Eyeing Chloe"></figure>
 
-## Instructions:
+### Instructions
 
 1.  Download the latest version of [winfsp](https://github.com/billziss-gh/winfsp/releases) and install it. (Tested: `WinFsp 2018.2 B4`)
 2.  Download the latest version of [sshfs-win](https://github.com/billziss-gh/sshfs-win/releases) and install it. (Tested: `SSHFS-Win 3.2 BETA`)

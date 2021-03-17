@@ -11,23 +11,13 @@ https://rstudio.bioinformatics.unibe.ch/users/$USER\_NAME/ (Do not forget the �
 
 !!! bug "This probably needs elaboration"
 
-https://shiny.bioinformatics.unibe.ch. Contact: Pierre Berthier. See [ShinyServer.pdf](https://projects.bioinformatics.unibe.ch/attachments/105/ShinyServer.pdf) for detailed instructions on how to set up a new app.
+https://shiny.bioinformatics.unibe.ch. Contact: Pierre Berthier. See [ShinyServer.pdf](../../assets/pdf/ShinyServer.pdf) for detailed instructions on how to set up a new app.
 
 ## Ftp server
 
-!!! bug "This probably needs elaboration"
-
-!!! bug "This probably needs to moved or redirected"
-    There's a whole part on instructions at share_files.md
-
-binfftp01.unibe.ch. Contact: Rémy Bruggmann. See [ftpServer.pdf](https://projects.bioinformatics.unibe.ch/attachments/20/ftpServer.pdf) for instructions on how to transfer files.
+binfftp01.unibe.ch. Contact: Rémy Bruggmann. See [ftpServer.pdf](../assets/pdf/ftpServer.pdf) for instructions on how to transfer files.
 
 ## IBU cloud
-
-!!! bug "This probably needs elaboration"
-
-!!! bug "This probably needs to moved or redirected"
-    There's a whole part on instructions at share_files.md
 
 https://cloud.bioinformatics.unibe.ch. Contact: Pierre Berthier.
 

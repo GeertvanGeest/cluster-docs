@@ -2,6 +2,9 @@ site_name: IBU cluster wiki
 
 nav:
     - Home: index.md
+    - Tutorials:
+      - SSH Tutorial: HPC_tutorial/SSH_tutorial.md
+      - SLURM tutorial: HPC_tutorial/SLURM_tutorial.md
     - Documentation:
       - Storage: documentation/storage.md
       - Resources:
@@ -19,9 +22,7 @@ nav:
     - HOWTOs:
       - Mount cluster as network drive: HOWTOs/mount_cluster.md
       - Work on gitlab: HOWTOs/gitlab.md
-    - Tutorials:
-      - SSH Tutorial: HPC_tutorial/SSH_tutorial.md
-      - SLURM tutorial: HPC_tutorial/SLURM_tutorial.md
+
     - Coding Best Practices:
       - Coding Best Practices: coding_best_practices/best_practices.md
 
