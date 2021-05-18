@@ -17,7 +17,7 @@ Most options can be used for both `sbatch` and `srun`. Full documentation on `sb
 |--array      | Submit an array job. Use "%" to specify the max number of tasks allowed to run concurrently. Only works in combination with `sbatch`| --array=1,4,16-32:4 <br> --array=1-100%20 | |
 |--output     | Redirect standard output. **All directories specified in the path must exist before the job starts!** | | By default stderr and stdout are connected to the same file slurm-%j.out, where '%j' is replaced with the job allocation number. |
 |--error      | Redirect standard error. **All directories specified in the path must exist before the job starts!** | | By default stderr and stdout are connected to the same file slurm-%j.out, where '%j' is replaced with the job allocation number. |
-|--partition  | The partition to use. | --partition=long <br> --partition=debug | Default partition: pall |
+|--partition  | The partition to use. | --partition=pall <br> --partition=pshort <br> --partition=phighmem | Default partition: pall |
 |--immediate  | Only submit the job if all requested resources are immediately available | | |
 |--exclusive  | Use the compute node(s) (with `sbatch`) or CPU(s) (with `srun`) exclusively. **CAUTION: use in combination with `sbatch` only if you know what your are doing** | | |
 |--test-only  | Validate the batch script and return the estimated start time considering the current cluster state
