@@ -11,6 +11,8 @@
 
 ## 1. SLURM introduction
 
+ <iframe width="640" height="360" src="https://tube.switch.ch/embed/bfbb68ea" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+
 **Exercise 1A:** Create a script named `sleep.sh` that lets the system sleep for 120 seconds (use the command `sleep`).
 
 ??? done "Answer"
@@ -63,6 +65,8 @@ sleep.sh
     ```
 
 ## 2. sbatch options
+
+<iframe width="640" height="360" src="https://tube.switch.ch/embed/e01c25f4" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
 
 ### 2.1 Required resources
 
@@ -159,7 +163,9 @@ Submit it with sbatch. Were your expected files created? Where did stdout and st
 
     Stdout should be in `/home/[USER]/output_[JOBID].o` and stderr in `/home/[USER]/error_[JOBID].e`
 
-## 3 Interactive jobs
+## 3. Interactive jobs
+
+ <iframe width="640" height="360" src="https://tube.switch.ch/embed/cc9095ef" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
 
 **Exercise 3A:** Create interactive job with `srun`. Use the options `--cpus-per-task`, `--mem-per-cpu` and `--time`. Allocate  maximum 1 CPU, 500 MB memory for 5 minutes.
 
@@ -185,6 +191,8 @@ Submit it with sbatch. Were your expected files created? Where did stdout and st
     ```
 
 ## 4. Modules
+
+ <iframe width="640" height="360" src="https://tube.switch.ch/embed/c64a439a" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
 
 **Exercise 4A:** Load the module for the latest version of `minimap2` (look it up here: [https://www.vital-it.ch/services](https://www.vital-it.ch/services)), and check out the help documentation with `minimap2 --help`.
 
@@ -263,6 +271,8 @@ ecoli_sample1.fastq \
 
 ## 5 Job arrays
 
+ <iframe width="640" height="360" src="https://tube.switch.ch/embed/5e1e7ca8" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+ 
 ### 5.1 Jobs in parallel
 
 **Exercise 5.1A:** Generate a script `array.sh` with the sbatch options for cpu, memory, time, job name, e-mail, output and error. Now also include the option to initiate an array counting from 10 till 15. In the script, let each element of the array create a file with the `$SLURM_ARRAY_TASK_ID` in it's name in your home directory. In order to check out `squeue`, let the system sleep for 60 seconds after generating the file.
