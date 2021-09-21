@@ -79,7 +79,7 @@ $ ssh <hpcuser>@binfservms01.unibe.ch
 ??? done "Result"
     ```
     The authenticity of host 'binfservms01.unibe.ch (130.92.199.95)' can't be established.
-    ECDSA key fingerprint is SHA256:Yz6JYkqIEHYni+EJgEwQIPqlz0IEUBQLHEQVU8nEwSY.
+    ED25519 key fingerprint is SHA256:lvjBlWxYtrwFe509ktewvRFXCX7KfAZiLMlMh2mmbeY.
     Are you sure you want to continue connecting (yes/no/[fingerprint])?
     ```
 
