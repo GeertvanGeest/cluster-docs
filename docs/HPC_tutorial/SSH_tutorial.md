@@ -39,21 +39,21 @@ $ ssh-keygen -F binfservms01.unibe.ch -l -f ~/.ssh/known_hosts
 
 ??? done "Result"
 
-    If you have generated an ssh key before, the output looks like this:
+    If you have been connecting to this server before, the output looks like this:
     ```
     # Host binfservms01.unibe.ch found: line 1
     binfservms01.unibe.ch ECDSA SHA256:Yz6JYkqIEHYni+EJgEwQIPqlz0IEUBQLHEQVU8nEwSY
     $
     ```
 
-    Otherwise your output will look like this:
+    Otherwise your output will be empty, or if you've never used ssh before it will look like this:
     ```
     do_known_hosts: hostkeys_foreach failed: No such file or directory
     ```
 
 **Exercise 1B:** remove existing host key
 
-Because in this tutorial we will generate new keys, we will first remove keys if there are any. You can remove host keys with the following command:
+Because in this tutorial we will learn to verify host keys, we will first remove stored host keys if there are any.  You can remove host keys with the following command:
 
 ```
 $ ssh-keygen -R binfservms01.unibe.ch -f ~/.ssh/known_hosts
