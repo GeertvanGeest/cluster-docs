@@ -1,4 +1,7 @@
 
+!!! note "Experienced users"
+        Are you a more experienced user and looking for some specific SLURM documentation? Have a look at the [SLURM usage page](../documentation/SLURM_usage/submit_jobs.md)
+
 ## How we work:
 
 * For each chapter (1 till 5) we'll have a few slides of presentation and exercises. We'll discuss the exercises and continue with the next chapter when most of you have finished the exercises of the current chapter.
