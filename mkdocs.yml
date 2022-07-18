@@ -16,7 +16,9 @@ nav:
         - Share files: documentation/resources/share_files.md
         - Analysis: documentation/resources/analysis.md
       - SLURM usage:
+        - General: documentation/SLURM_usage/slurm_general.md
         - Submit jobs: documentation/SLURM_usage/submit_jobs.md
+        - Partitions: documentation/SLURM_usage/partitions.md
         - Status monitoring: documentation/SLURM_usage/status_monitoring.md
         - Allocation options: documentation/SLURM_usage/allocation_options.md
         - Special variables: documentation/SLURM_usage/slurm_variables.md

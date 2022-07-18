@@ -1,28 +1,31 @@
 
 ## General status of nodes
 
-In order to get the list of available nodes and partitions you can simply run the command:
+For a detailed overview of the state of the cluster use:
 
 ```sh
-sinfo
+clusterstate.sh
 ```
 
-This will give you a summarized list of nodes and partitions, e.g.:
+This returns the full list of nodes:
 
 ```
-PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST
-pall*        up 28-00:00:0     21    mix binfservas[08-12,15,19-30,32-34]
-pall*        up 28-00:00:0      1  alloc binfservas07
-pall*        up 28-00:00:0      4   idle binfservas[13-14,16-17]
-ptest        up 7-00:00:00      1   down binfservas99
-pshort       up    3:00:00      2   idle binfservas[03,06]
-phighmem     up 110-00:00:      1   idle binfservas03
-pcmpg        up   infinite      1   idle binfservas18
-pcoursea     up 28-00:00:0      1   idle binfservas36
-pcourseb     up 28-00:00:0      1   idle binfservas35
+NODELIST          CPUS(A/I/O/T)   CPU_LOAD   FREEMEMORY        STATE
+binfservas03         24/56/0/80       7.83      1969280        mixed
+binfservas06          0/16/0/16       0.10       250000         idle
+binfservas07          16/0/0/16       4.22        11984    allocated
+binfservas08          11/5/0/16      10.98        81552        mixed
+binfservas09           7/9/0/16       4.26       234144        mixed
+binfservas10          4/12/0/16       5.56       218000        mixed
+binfservas11          24/0/0/24      16.48       108630    allocated
+...
 ```
 
-Here you can find the different partitions, associated nodes and their time limits. 
+!!! Note "the meaning of A/I/O/T"
+    - A: allocated
+    - I: idle
+    - O: other
+    - T: total
 
 If you are interested in the specifications of a certain node, e.g. one of the nodes in `pall`, you can use:
 
@@ -85,6 +88,12 @@ Returning:
 7377455      pall interact gvangees  R       2:00      1 binfservas10
 ```
 
+To get more information on submitted jobs that have not yet completed (i.e. status is RUNNING/PENDING):
+
+```sh
+scontrol show job 7377455
+```
+
 After job completion, you migth be interested in how much CPU, time and memory your job actually took. For this, you could use:
 
 ```sh
@@ -139,4 +148,17 @@ Returning:
 Constraints         ConsumedEnergy      ConsumedEnergyRaw   CPUTime            
 CPUTimeRAW          DBIndex             DerivedExitCode     Elapsed            
 SystemCPU           SystemComment       Timelimit           TimelimitRaw 
+```
+
+For your convenience, you can summarize these statistics based on a pattern in the job name. Here's an example on CPU time (here we're looking for pattern `p121`):
+
+```sh
+# To see the total CPU time spent on a particular project (in seconds):
+# CPUTimeRaw = Elapsed time * CPU
+
+sacct \
+--starttime 2018-01-01 \
+-o CPUTimeRaw,JobName \
+| grep "p121" \
+| awk '{ sum += $1 } END { print sum }'
 ```

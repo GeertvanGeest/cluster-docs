@@ -1,12 +1,6 @@
-# SLURM job submission
 
 !!! note "Looking for the SLURM tutorial?"
     Find the SLURM tutorial [here](../../HPC_tutorial/SLURM_tutorial.md)
-
-
-## Introduction
-
-A cluster has many resources and many users. Often the demand for resources is higher than supply. A job scheduler can schedule the jobs submitted by the different users, based on priority, required resources and time. The IBU cluster uses [SLURM](https://slurm.schedmd.com) as job scheduler. After submitting a job to the cluster, SLURM will try to fulfill the job's resource request by allocating resources to the job.
 
 ## Resource Allocation
 
@@ -78,6 +72,26 @@ my_program ${FILES[$SLURM_ARRAY_TASK_ID]}
 
 !!! note "UNIX uses zero indexing"
     Like python and many other languages UNIX uses zero-based indexing, meaning the first item in a list is indicated by a 0, the second by 1 etc. So, in the example above the SLURM array should range from 0-7 if there are 8 files in your input directory.
+
+Or, if you want to 'loop' over lines in a file:
+
+```sh
+#!/bin/bash
+#
+#SBATCH --job-name=test_emb_arr
+#SBATCH --output=res_emb_arr.txt
+#SBATCH --ntasks=1
+#SBATCH --time=10:00
+#SBATCH --mem-per-cpu=100
+#SBATCH --array=1-7
+
+## Each line in the list contains a file name/path
+FOFN="list_of_file_names.txt"
+LINE=`sed "${SLURM_ARRAY_TASK_ID}q;d" "$FOFN"`
+
+## run my_program on the ith line in the file
+my_program "$LINE"
+```
 
 ### srun
 The command `srun` submits a job for execution in real time, and takes most of the same options as `sbatch` described at [Allocation options](allocation_options.md). You need `srun` if you want to make use of job steps or parallelization with a Message Passing Interface (MPI). Because it runs in real-time, the terminal will be blocked after calling `srun` untill the job is finished.
