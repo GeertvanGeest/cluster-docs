@@ -2,7 +2,8 @@
 Reference genomes for commonly used taxa are available here: `/data/references`  
 
 **Important**: All cluster users have write permission in this folder. You are welcome to add new files or new species as long as you stick to this structure:
- ![Structure in reference genome folder](/assets/images/references.png)
+
+ ![Structure in reference genome folder](../../assets/images/references.png)
 
 Each species-specific folder **must contain a README** with information on (i) when a file was downloaded, (ii) from where it was downloaded and (iii) how it was processed (e.g. how a particular index was built). We will regularly check `data/references` and **delete without warning** any folders/files that do not follow the mandatory structure or are not properly documented.  
 
