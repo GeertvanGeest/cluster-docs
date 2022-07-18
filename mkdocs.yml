@@ -1,4 +1,4 @@
-site_name: IBU cluster wiki
+site_name: IBU cluster docs
 site_dir: public
 
 nav:
@@ -37,8 +37,8 @@ theme:
     - navigation.tabs
 
 # Repository
-repo_name: docs/cluster_wiki
-repo_url: https://gitlab.bioinformatics.unibe.ch/docs/cluster_wiki
+repo_name: docs/cluster-docs
+repo_url: https://gitlab.bioinformatics.unibe.ch/docs/cluster-docs
 edit_uri: "edit/main/docs/"
 
 markdown_extensions:
