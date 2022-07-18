@@ -1,4 +1,5 @@
 site_name: IBU cluster wiki
+site_dir: public
 
 nav:
     - Home: index.md
