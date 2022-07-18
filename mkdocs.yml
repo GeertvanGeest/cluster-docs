@@ -22,8 +22,8 @@ nav:
         - Special variables: documentation/SLURM_usage/slurm_variables.md
     - HOWTOs:
       - Mount cluster as network drive: HOWTOs/mount_cluster.md
+      - Download from Amazon S3: HOWTOs/download_s3.md
       - Work on gitlab: HOWTOs/gitlab.md
-
     - Coding Best Practices:
       - Coding Best Practices: coding_best_practices/best_practices.md
 
@@ -37,13 +37,10 @@ theme:
     - navigation.tabs
 
 # Repository
-repo_name: gvangeest/cluster_wiki
-repo_url: https://gitlab.bioinformatics.unibe.ch/gvangeest/cluster_wiki/
-edit_uri: ""
+repo_name: docs/cluster_wiki
+repo_url: https://gitlab.bioinformatics.unibe.ch/docs/cluster_wiki
+edit_uri: "edit/main/docs/"
 
-# See https://python-markdown.github.io/extensions/ and
-# See https://github.com/Python-Markdown/markdown/wiki/Third-Party-Extensions#Bundles
-#     https://facelessuser.github.io/pymdown-extensions/
 markdown_extensions:
   - abbr
   - def_list
