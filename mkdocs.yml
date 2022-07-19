@@ -39,7 +39,7 @@ theme:
 # Repository
 repo_name: docs/cluster-docs
 repo_url: https://gitlab.bioinformatics.unibe.ch/docs/cluster-docs
-edit_uri: "edit/main/docs/"
+edit_uri: "edit/master/docs/"
 
 markdown_extensions:
   - abbr
