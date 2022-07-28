@@ -10,7 +10,7 @@ nav:
       - Storage: documentation/storage.md
       - Resources:
         - Software modules: documentation/resources/software_modules.md
-        - Servers: documentation/resources/servers.md
+        - Rstudio server: documentation/resources/rstudio_server.md
         - Reference genomes: documentation/resources/reference_genomes.md
         - Share files: documentation/resources/share_files.md
       - SLURM usage:
