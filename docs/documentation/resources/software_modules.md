@@ -2,7 +2,7 @@
 
 ## Vital-IT
 
-A lot of software is pre-installed as modules on the server. In the [SLURM tutorial](../../../HPC_tutorial/SLURM_tutorial/#4-modules) it is explained how to use these modules.
+A lot of software is pre-installed as modules on the server. In the [SLURM tutorial](../../../tutorials/SLURM_tutorial/#4-modules) it is explained how to use these modules.
 
 All modules can be found here:
 [http://www.vital-it.ch/services/software](http://www.vital-it.ch/services/software)

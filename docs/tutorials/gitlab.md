@@ -16,7 +16,7 @@ Note: It is easier NOT to initialize with a readme otherwise you will run into t
 
 ## Connect to GitLab from binfservms01
 
-We need to set up SSH keys so that binfservms01 and gitlab can talk to each other. You can do this following the instructions [here](https://docs.pages.bioinformatics.unibe.ch/cluster-docs/HPC_tutorial/SSH_tutorial/) to learn how to generate SSH keys. Once you generated your keys, you can follow the instructions [here](https://docs.gitlab.com/ee/user/ssh.html#add-an-ssh-key-to-your-gitlab-account) to copy your private key to gitlab.
+We need to set up SSH keys so that binfservms01 and gitlab can talk to each other. You can do this following the instructions [here](https://docs.pages.bioinformatics.unibe.ch/cluster-docs/tutorials/SSH_tutorial/) to learn how to generate SSH keys. Once you generated your keys, you can follow the instructions [here](https://docs.gitlab.com/ee/user/ssh.html#add-an-ssh-key-to-your-gitlab-account) to copy your private key to gitlab.
 
 
 To test if it worked: From the cluster, type:

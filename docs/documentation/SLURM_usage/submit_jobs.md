@@ -1,6 +1,6 @@
 
 !!! note "Looking for the SLURM tutorial?"
-    Find the SLURM tutorial [here](../../HPC_tutorial/SLURM_tutorial.md)
+    Find the SLURM tutorial [here](../../tutorials/SLURM_tutorial.md)
 
 ## Resource Allocation
 
