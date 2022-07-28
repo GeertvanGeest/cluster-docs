@@ -15,7 +15,7 @@ nav:
         - Software modules: documentation/resources/software_modules.md
         - Rstudio server: documentation/resources/rstudio_server.md
         - Reference genomes: documentation/resources/reference_genomes.md
-        - Share files: documentation/resources/share_files.md
+        - Cloud services: documentation/resources/cloud_services.md
       - SLURM usage:
         - General: documentation/SLURM_usage/slurm_general.md
         - Submit jobs: documentation/SLURM_usage/submit_jobs.md
