@@ -4,8 +4,11 @@ site_dir: public
 nav:
     - Home: index.md
     - Tutorials:
-      - SSH Tutorial: HPC_tutorial/SSH_tutorial.md
-      - SLURM tutorial: HPC_tutorial/SLURM_tutorial.md
+      - SSH Tutorial: tutorials/SSH_tutorial.md
+      - SLURM tutorial: tutorials/SLURM_tutorial.md
+      - Mount cluster as network drive: tutorials/mount_cluster.md
+      - Download from Amazon S3: tutorials/download_s3.md
+      - Work on gitlab: tutorials/gitlab.md
     - Documentation:
       - Storage: documentation/storage.md
       - Resources:
@@ -20,10 +23,7 @@ nav:
         - Status monitoring: documentation/SLURM_usage/status_monitoring.md
         - Allocation options: documentation/SLURM_usage/allocation_options.md
         - Special variables: documentation/SLURM_usage/slurm_variables.md
-    - HOWTOs:
-      - Mount cluster as network drive: HOWTOs/mount_cluster.md
-      - Download from Amazon S3: HOWTOs/download_s3.md
-      - Work on gitlab: HOWTOs/gitlab.md
+      
     - Coding Best Practices:
       - Coding Best Practices: coding_best_practices/best_practices.md
 
