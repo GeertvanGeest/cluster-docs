@@ -1,21 +1,20 @@
-# How to work with GitLab
 
 Based on this youtube video:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7p0hrpNaJ14" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-### 1) Log in
+## Log in
 
 [https://gitlab.bioinformatics.unibe.ch](https://gitlab.bioinformatics.unibe.ch/)
 
 User name and password are the same as for the cluster. The older https://binfgitlab.unibe.ch still exists for historical/compatibility reasons.
 
-### 2) Create a new project in GitLab
+## Create a new project in GitLab
 
 This is self-explanatory. In GitLab —&gt; New Project  
 Note: It is easier NOT to initialize with a readme otherwise you will run into the issue described in the last step
 
-### 3) Connect to GitLab from binfservms01
+## Connect to GitLab from binfservms01
 
 We need to set up SSH keys so that binfservms01 and gitlab can talk to each other. You can do this following the instructions [here](https://docs.pages.bioinformatics.unibe.ch/cluster-docs/HPC_tutorial/SSH_tutorial/) to learn how to generate SSH keys. Once you generated your keys, you can follow the instructions [here](https://docs.gitlab.com/ee/user/ssh.html#add-an-ssh-key-to-your-gitlab-account) to copy your private key to gitlab.
 
@@ -28,7 +27,7 @@ ssh -T git@gitlab.bioinformatics.unibe.ch
 
 If everything is fine, you should get a `Welcome to GitLab` message.
 
-### 4) Specify user name and email
+## Specify user name and email
 
 On the cluster, check your current git user name and email address:
 
@@ -45,7 +44,7 @@ git config --global user.name <myname>
 git config --global user.email <myemail@example.ch>
 ```
 
-### 5) Set up new repository on the cluster
+## Set up new repository on the cluster
 
 ```text
 mkdir <myscripts>
@@ -60,7 +59,7 @@ git add *
 git commit *
 ```
 
-### 6) Push to GitLab
+## Push to GitLab
 
 Go to the project you created in GitLab and copy the path to the repository. This will look similar to this: git@binfgitlab.unibe.ch:/.  
 On the cluster:
@@ -83,7 +82,3 @@ If GitLab automatically created a readme file when you first created your projec
 git pull origin master
 git push origin master
 ```
-
-### A note on Auto DevOps
-
-You will probably get an email that your pipeline has failed. This is not a problem. It just means that you cannot use Auto DevOps which would allow you to run automated testing and deploying of your software. By default, Auto DevOps is enabled when a new project is created but it will then be automatically disabled on the first pipeline failure (https://docs.gitlab.com/ee/topics/autodevops/)
