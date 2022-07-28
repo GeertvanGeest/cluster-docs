@@ -7,6 +7,7 @@ The IBU cloud is accessible only for cluster users.
 [nextloud](https://nextcloud.com/) allows you to automatically synchronyse your local files with your IBUcloud folder (which is a nextcloud) and therefore easily backup and share your files. Setting up nextcloud on your local computer is quite easy:
 
 Follow the instructions [here](https://nextcloud.com/install/):
+
 1.  As server address you have to enter: [https://cloud.bioinformatics.unibe.ch/](https://cloud.bioinformatics.unibe.ch/)
 2.  Then you need to login with the IBUcluster login
 3.  Afterwards you need to define what you would like to automatically synchronise from the IBUcloud.
