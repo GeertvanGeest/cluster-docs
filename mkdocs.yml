@@ -8,7 +8,9 @@ nav:
       - SLURM tutorial: tutorials/SLURM_tutorial.md
       - Mount cluster as network drive: tutorials/mount_cluster.md
       - Download from Amazon S3: tutorials/download_s3.md
-      - Work on gitlab: tutorials/gitlab.md
+      - Gitlab: 
+          - Set up: tutorials/gitlab/gitlab.md
+          - Git cheatsheet: tutorials/gitlab/git_cheatsheet.md
     - Documentation:
       - Storage: documentation/storage.md
       - Resources:
