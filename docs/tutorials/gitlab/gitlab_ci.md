@@ -51,6 +51,28 @@ rsync:
 
 ```
 
+If everything goes well, the image will be pushed to the container registry. In order to pull the image:
+
+=== "Docker"
+    ```sh
+    docker login gitlab.bioinformatics.unibe.ch:5050
+
+    docker pull \
+    gitlab.bioinformatics.unibe.ch:5050/[namespace]/[repo name]/[image name]:[tag name]
+
+    ```
+
+=== "singularity"
+    ```sh
+    # use --docker-login only the first time
+    singularity pull \
+    --docker-login \
+    gitlab.bioinformatics.unibe.ch:5050/[namespace]/[repo name]/[image name]:[tag name]
+    ```
+
+🥳 :tada:
+
+
 ## R-package build example
 
 This pipeline installs a package inside a container, and deploys a documentation website. It assumes the project uses a.o. [`renv`](https://rstudio.github.io/renv/articles/renv.html), and [`pkgdown`](https://pkgdown.r-lib.org/). While building pages, it makes efficient use of the cache. 
