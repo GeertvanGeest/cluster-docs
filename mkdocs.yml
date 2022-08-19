@@ -8,8 +8,9 @@ nav:
       - SLURM tutorial: tutorials/SLURM_tutorial.md
       - Mount cluster as network drive: tutorials/mount_cluster.md
       - Download from Amazon S3: tutorials/download_s3.md
-      - Gitlab: 
+      - Git & Gitlab: 
           - Set up: tutorials/gitlab/gitlab.md
+          - CI & automatic image builds: tutorials/gitlab/gitlab_ci.md
           - Git cheatsheet: tutorials/gitlab/git_cheatsheet.md
     - Documentation:
       - Storage: documentation/storage.md
@@ -57,8 +58,9 @@ markdown_extensions:
   - smarty
   - toc
   - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true 
   - attr_list
-  - pymdownx.tabbed
   - pymdownx.details
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
