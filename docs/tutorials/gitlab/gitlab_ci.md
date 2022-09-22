@@ -1,4 +1,3 @@
-
 Gitlab and GitHub CI are extremely useful for running processes that are related to your software development project, like testing, building container images, deploying webpages etc. 
 
 In gitlab, all you need to do is generate a file called `.gitlab-ci.yml`, and specify there what kind of processes need to run. In such a file you specify:
@@ -35,7 +34,7 @@ variables:
 stages:
   - build
 
-rsync:
+build:
   image: docker:20.10.16
   stage: build
   services:
