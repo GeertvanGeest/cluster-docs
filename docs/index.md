@@ -1,7 +1,7 @@
 # IBU cluster documentation
 
 ## Introduction
-The IBU cluster the main computer of cluster of the [Interfaculty Bioinformatics Unit](https://www.bioinformatics.unibe.ch/) at the [University of Bern](https://www.unibe.ch/).
+The IBU cluster is the main compute of cluster of the [Interfaculty Bioinformatics Unit](https://www.bioinformatics.unibe.ch/) at the [University of Bern](https://www.unibe.ch/).
 
 ## Working on the IBU cluster & new users
 We assume all users have a good knowledge of UNIX command line, basic knowledge on HPC computing and job submission using [SLURM](https://slurm.schedmd.com/documentation.html). If you are doubting whether you possess the right skills, you can:
