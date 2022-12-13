@@ -66,7 +66,7 @@ If everything goes well, the image will be pushed to the container registry. In 
     # use --docker-login only the first time
     singularity pull \
     --docker-login \
-    gitlab.bioinformatics.unibe.ch:5050/[namespace]/[repo name]/[image name]:[tag name]
+    docker://gitlab.bioinformatics.unibe.ch:5050/[namespace]/[repo name]/[image name]:[tag name]
     ```
 
 🥳 :tada:
