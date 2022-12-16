@@ -9,7 +9,7 @@ Most options can be used for both `sbatch` and `srun`. Full documentation on `sb
 |`--job-name`   | Specify a job name | `--job-name="Simple Matlab`" | |
 |`--time`      | Expected runtime of the job. Format: `dd-hh:mm:ss` | `--time=12:00:00` <br> `--time=2-06:00:00`  | Partition-specific, see `scontrol show partition <partname>` |
 |`--mem-per-cpu`| Memory required per allocated CPU in megabytes. Different units can be specified using the suffix [K\|M\|G] | `--mem-per-cpu=2G` | 2048 MB |
-|`--tmp`        | Specify the amount of disk space that must be available on the compute node(s). The local scratch space for the job is referenced by the variable `TMPDIR`. Default units are megabytes. Different units can be specified using the suffix [K\|M\|G\|T]. | `--tmp=8G` <br>`--tmp=2048` | |
+|`--tmp`        | Specify the amount of disk space that must be available on the compute node(s). The local scratch space for the job is referenced by the variable `SCRATCH`. Default units are megabytes. Different units can be specified using the suffix [K\|M\|G\|T]. | `--tmp=8G` <br>`--tmp=2048` | |
 |`--ntasks`     | Number of tasks (processes). Used for MPI jobs and job steps that may run distributed on multiple compute nodes | `--ntasks=4 `| 1 or to match `--nodes`, `--tasks-per-node` if specified |
 |`--nodes`      | Request a certain number of nodes | `--nodes=2` | 1 or to match `--ntasks`, `--tasks-per-node` if specified
 |`--ntasks-per-node` | Specifies how many tasks will run on each allocated node. Meant to be used with `--nodes`. If used with the `--ntasks` option, the `--ntasks` option will take precedence and the `--ntasks-per-node` will be treated as a maximum count of tasks per node.| `--ntasks-per-node=2` | |
