@@ -34,6 +34,9 @@ nav:
     - Coding Best Practices:
       - Coding Best Practices: coding_best_practices/best_practices.md
 
+    - Checklists:
+      - Prepare a course checklist: checklists/checklist_courses_cluster.md
+
 # Configuration
 theme:
   name: material
