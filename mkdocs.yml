@@ -12,6 +12,8 @@ nav:
           - Set up: tutorials/gitlab/gitlab.md
           - CI & automatic image builds: tutorials/gitlab/gitlab_ci.md
           - Git cheatsheet: tutorials/gitlab/git_cheatsheet.md
+      - Containers:
+          - Conda env in a container: tutorials/containers/conda_env_container.md
     - Documentation:
       - Storage: documentation/storage.md
       - Resources:
