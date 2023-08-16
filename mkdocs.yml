@@ -14,6 +14,7 @@ nav:
           - Git cheatsheet: tutorials/gitlab/git_cheatsheet.md
       - Containers:
           - Conda env in a container: tutorials/containers/conda_env_container.md
+          - Port forwarding for apptainer: tutorials/containers/port_forwarding_apptainer.md
     - Documentation:
       - Storage: documentation/storage.md
       - Resources:
