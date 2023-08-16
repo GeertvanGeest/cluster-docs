@@ -1,6 +1,9 @@
 
 With port forwarding you can access a port on a remote machine as if it were on your local machine. This is useful for accessing web interfaces running on a remote machine.
 
+!!! note
+    You can find a wrapper script for these steps [here](https://gitlab.bioinformatics.unibe.ch/gvangeest/launch-webapps-apptainer)
+
 Start an interactive session with SLURM
 
 ```sh
