@@ -61,11 +61,12 @@ If everything goes well, the image will be pushed to the container registry. In 
 
     ```
 
-=== "singularity"
+=== "apptainer"
     ```sh
-    # use --docker-login only the first time
-    singularity pull \
-    --docker-login \
+    # use login only the first time
+    apptainer remote login --username foo docker://gitlab.bioinformatics.unibe.ch:5050
+
+    apptainer pull \
     docker://gitlab.bioinformatics.unibe.ch:5050/[namespace]/[repo name]/[image name]:[tag name]
     ```
 
