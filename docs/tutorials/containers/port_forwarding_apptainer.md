@@ -54,3 +54,5 @@ Locally, you can now create an ssh tunnel to the compute node on your local comp
 ```sh
 ssh -N -f -L 8879:binfservasXX:8879 gvangeest@binfservms01.unibe.ch
 ```
+
+You should be able to access jupyterlab on `localhost:8879`. To login enter the token that is printed in the terminal.
