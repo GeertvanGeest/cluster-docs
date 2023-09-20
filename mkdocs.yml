@@ -4,6 +4,13 @@ site_dir: public
 nav:
     - Home: index.md
     - Tutorials:
+      - Containers:
+          - Introduction to containers: tutorials/containers/introduction_containers.md
+          - Managing docker: tutorials/containers/managing_docker.md
+          - Dockerfiles: tutorials/containers/dockerfiles.md
+          - Apptainer: tutorials/containers/apptainer.md
+          - Conda env in a container: tutorials/containers/conda_env_container.md
+          - Port forwarding for apptainer: tutorials/containers/port_forwarding_apptainer.md
       - SSH Tutorial: tutorials/SSH_tutorial.md
       - SLURM tutorial: tutorials/SLURM_tutorial.md
       - Mount cluster as network drive: tutorials/mount_cluster.md
@@ -12,9 +19,6 @@ nav:
           - Set up: tutorials/gitlab/gitlab.md
           - CI & automatic image builds: tutorials/gitlab/gitlab_ci.md
           - Git cheatsheet: tutorials/gitlab/git_cheatsheet.md
-      - Containers:
-          - Conda env in a container: tutorials/containers/conda_env_container.md
-          - Port forwarding for apptainer: tutorials/containers/port_forwarding_apptainer.md
     - Documentation:
       - Storage: documentation/storage.md
       - Resources:
