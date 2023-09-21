@@ -4,21 +4,24 @@ site_dir: public
 nav:
     - Home: index.md
     - Tutorials:
-      - Containers:
-          - Introduction to containers: tutorials/containers/introduction_containers.md
-          - Managing docker: tutorials/containers/managing_docker.md
-          - Dockerfiles: tutorials/containers/dockerfiles.md
-          - Apptainer: tutorials/containers/apptainer.md
-          - Conda env in a container: tutorials/containers/conda_env_container.md
-          - Port forwarding for apptainer: tutorials/containers/port_forwarding_apptainer.md
+      - Getting started: tutorials/getting_started.md
+      - Introduction to containers:
+        - Introduction to containers: tutorials/containers/introduction_containers.md
+        - Managing docker: tutorials/containers/managing_docker.md
+        - Dockerfiles: tutorials/containers/dockerfiles.md
+        - Apptainer: tutorials/containers/apptainer.md
       - SSH Tutorial: tutorials/SSH_tutorial.md
       - SLURM tutorial: tutorials/SLURM_tutorial.md
-      - Mount cluster as network drive: tutorials/mount_cluster.md
-      - Download from Amazon S3: tutorials/download_s3.md
       - Git & Gitlab: 
-          - Set up: tutorials/gitlab/gitlab.md
-          - CI & automatic image builds: tutorials/gitlab/gitlab_ci.md
-          - Git cheatsheet: tutorials/gitlab/git_cheatsheet.md
+        - Set up: tutorials/gitlab/gitlab.md
+        - CI & automatic image builds: tutorials/gitlab/gitlab_ci.md
+        - Git cheatsheet: tutorials/gitlab/git_cheatsheet.md
+      - Short tutorials:
+        - Mount cluster as network drive: tutorials/short/mount_cluster.md
+        - Download from Amazon S3: tutorials/short/download_s3.md
+        - Conda env in a container: tutorials/short/conda_env_container.md
+        - Port forwarding for apptainer: tutorials/short/port_forwarding_apptainer.md
+      
     - Documentation:
       - Storage: documentation/storage.md
       - Resources:
