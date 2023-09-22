@@ -193,7 +193,7 @@ Submit it with sbatch. Were your expected files created? Where did stdout and st
     [gvangeest@binfservas07 ~]$
     ```
 
-## 4. Modules
+## 4. Modules and containers
 
  <iframe width="640" height="360" src="https://tube.switch.ch/embed/c64a439a" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
 
@@ -264,6 +264,52 @@ ecoli_sample1.fastq \
 
     cd $READS_DIR
 
+    minimap2 \
+    -a \
+    -x sr \
+    $REFERENCE_DIR/ecoli-strK12-MG1655.fasta \
+    ecoli_sample1.fastq \
+    > $ALIGN_DIR/ecoli_sample1.fastq.sam
+    ```
+
+As you have learned in the [apptainer exercises](containers/apptainer.md), you can run applications in a container. We have created a container with `minimap2` in it. You can find it at `/data/courses/HPC_tutorial/containers/minimap2.sif`. We'll use this container to run `minimap2` in the next exercise.
+
+**Exercise 4D:** Do the same job submission as in exercise 4C, but now run the command in a container with apptainer. Make sure to add the option `--bind /data/courses` to the `apptainer exec` command, because by default the container has no access to the `/data/courses` directory.
+
+!!! hint
+    A command to run an application in a container looks like this:
+
+    ```sh
+    apptainer exec --bind /data/courses /path/to/container.sif command
+    ```
+
+??? done "Answer"
+    The script looks the same as in exercise 4C, but now with the `apptainer exec` command:
+    ```sh
+    #!/usr/bin/env bash
+
+    #SBATCH --cpus-per-task=3
+    #SBATCH --mem-per-cpu=200M
+    #SBATCH --time=00:01:00
+    #SBATCH --job-name=align_reads
+    #SBATCH --mail-user=user@students.unibe.ch
+    #SBATCH --mail-type=begin,end
+    #SBATCH --output=/home/[USER]/output_alignment_%j.o
+    #SBATCH --error=/home/[USER]/error_alignment_%j.e
+
+    module add UHTS/Analysis/minimap2/2.17
+
+    REFERENCE_DIR=/data/courses/HPC_tutorial/ecoli/reference
+    READS_DIR=/data/courses/HPC_tutorial/ecoli/reads
+    ALIGN_DIR=/home/[USER]/ecoli/alignment
+
+    mkdir $ALIGN_DIR
+
+    cd $READS_DIR
+
+    apptainer exec \
+    --bind /data/courses \
+    /data/courses/HPC_tutorial/containers/minimap2.sif \
     minimap2 \
     -a \
     -x sr \
