@@ -4,8 +4,6 @@
 
 [:fontawesome-solid-file-pdf: Download the presentation](../assets/pdf/hpc_intro.pdf){: .md-button }
 
-### 0. Prerequisites
-
 Before you start his tutorial, you will need to:
 
 * be on Unibe or UniFR Network  (maybe start [VPN](https://www.unibe.ch/universitaet/campus__und__infrastruktur/rund_um_computer/internetzugang/zugang_auf_interne_ressourcen_mit_vpn/index_ger.html))
@@ -24,18 +22,26 @@ Before you start his tutorial, you will need to:
 >  ...
 
 !!! Note
-    In this following tutorial, prompts starting with `$` are on your local computer; prompts starting with `[<hpcuser>@binfservms01 ~]$ ` are on the remote server.
+    In this following tutorial, code snippets witht the title **"local"** are on your local computer; snippets with the tile **"remote"** are on the remote server.
 
 
 ### 1. Verify host public key
 
 **Exercise 1A:** check for existing host key
 
-Execute on your client computer:
+Open the default terminal and make sure you are in your home directory. Then execute:
 
-```
-$ ssh-keygen -F binfservms01.unibe.ch -l -f ~/.ssh/known_hosts
-```
+!!! warning "For windows users"
+    If you are on windows use **PowerShell** for these exercises. So not WSL2 or MobaXterm. The reason for this is that it complicates working with VSCode in later exercises otherwise.
+
+=== "Powershell"
+    ``` powershell title="local"
+    ssh-keygen -F binfservms01.unibe.ch -l -f .\.ssh\known_hosts
+    ```
+=== "mac OS/Linux"
+    ``` bash title="local"
+    ssh-keygen -F binfservms01.unibe.ch -l -f ~/.ssh/known_hosts
+    ```
 
 ??? done "Result"
 
@@ -55,9 +61,14 @@ $ ssh-keygen -F binfservms01.unibe.ch -l -f ~/.ssh/known_hosts
 
 Because in this tutorial we will learn to verify host keys, we will first remove stored host keys if there are any.  You can remove host keys with the following command:
 
-```
-$ ssh-keygen -R binfservms01.unibe.ch -f ~/.ssh/known_hosts
-```
+=== "Powershell"
+    ``` powershell title="local"
+    ssh-keygen -R binfservms01.unibe.ch -f .\.ssh\known_hosts
+    ```
+=== "mac OS/Linux"
+    ``` bash title="local"
+    ssh-keygen -R binfservms01.unibe.ch -f ~/.ssh/known_hosts
+    ```
 
 ??? done "Result"
     ```
@@ -69,7 +80,7 @@ $ ssh-keygen -R binfservms01.unibe.ch -f ~/.ssh/known_hosts
 
     If you have never used `ssh` before you might get an error like this (can be safely ignored):
 
-     ```
+    ```
     mkstemp: No such file or directory
     ```
 
@@ -110,7 +121,7 @@ Warning: Permanently added 'binfservms01.unibe.ch' (ECDSA) to the list of known 
 <hpcuser>@binfservms01.unibe.ch's password:
 ```
 
-Now you can enter your password. Depending on your type of terminal, you might not be able to see the password being typed. Also, copy-pasting might be different compared to what you are used to (e.g. pasting by right-click in PuTTY/MobaXterm).
+Now you can enter your password. Depending on your type of terminal, you might not be able to see the password being typed. Also, copy-pasting might be different compared to what you are used to (e.g. pasting by right-click in PowerShell).
 
 ??? done "Result"
     ```
@@ -124,8 +135,8 @@ Now you can enter your password. Depending on your type of terminal, you might n
 
 We will add the public key to the server at a later stage. Now, check whether you already have a key in the `.ssh` directory at the server:
 
-```
-[<hpcuser>@binfservms01 ~]$ ls .ssh
+``` bash title="remote"
+ls .ssh
 ```
 
 ??? done "Result"
@@ -139,8 +150,8 @@ We will add the public key to the server at a later stage. Now, check whether yo
 !!! warning "Warning"
     Logout before moving on to the next exercise.
 
-```
-[<hpcuser>@binfservms01 ~]$ exit
+``` bash title="remote"
+exit
 ```
 
 
@@ -153,8 +164,8 @@ We will add the public key to the server at a later stage. Now, check whether yo
 
 Now, we can generate a public and private key on your local computer. Do this with the following command:
 
-```
-$ ssh-keygen
+``` bash title="local"
+ssh-keygen
 ```
 
 This will prompt to with some questions:
@@ -200,8 +211,8 @@ $
 
 Now, key information has been stored in your local `.ssh` directory. Check it by typing:
 
-```
-$ ls -l .ssh
+``` bash title="local"
+ls -l .ssh
 ```
 
 ??? done "Result"
@@ -216,10 +227,14 @@ $ ls -l .ssh
     ```
 
 Check out the hash of your public key with:
-
-```
-$ cat .ssh/id_rsa.pub
-```
+=== "Powershell" 
+    ``` powershell title="local"
+    cat .\.ssh\id_rsa.pub
+    ```
+=== "mac OS/Linux"
+    ``` bash title="local"
+    cat .ssh/id_rsa.pub
+    ```
 
 ??? done "Result"
     ```
@@ -236,9 +251,14 @@ $ cat .ssh/id_rsa.pub
 
 And your private key with:
 
-```
-$ cat .ssh/id_rsa
-```
+=== "Powershell"
+    ``` powershell title="local"
+    cat .\.ssh\id_rsa
+    ```
+=== "mac OS/Linux"
+    ``` powershell title="local"
+    cat .ssh/id_rsa
+    ```
 
 ??? done "Result"
     ```
@@ -264,9 +284,14 @@ Now that we have generated both the public and private key files, we will need t
 
 Copy the public key by using the following command:
 
-```
-$ ssh-copy-id <hpcuser>@binfservms01.unibe.ch
-```
+=== "Powershell"
+    ``` powershell title="local"
+    type $env:USERPROFILE\.ssh\id_rsa.pub | ssh <hpcuser>@binfservms01.unibe.ch "cat >> .ssh/authorized_keys"
+    ```
+=== "mac OS/Linux"
+    ``` bash title="local"
+    ssh-copy-id <hpcuser>@binfservms01.unibe.ch
+    ```
 
 ??? done "Result"
     ```
@@ -282,9 +307,12 @@ $ ssh-copy-id <hpcuser>@binfservms01.unibe.ch
     <hpcuser>@binfservms01.unibe.ch's password:
     ```
 
-This requires authentication. Therefore type your password. It depends on your OS how you are prompted:
+This requires authentication. Therefore type your password:
 
-
+=== "Powershell"
+    ```
+    <hpcuser>@binfservms01.unibe.ch's password: *********** *ENTER*
+    ```
 === "mac OS/Linux"
     ```
     <hpcuser>@binfservms01.unibe.ch's password: *********** *ENTER*
@@ -294,19 +322,14 @@ This requires authentication. Therefore type your password. It depends on your O
     Now try logging into the machine, with:   "ssh '<hpcuser>@binfservms01.unibe.ch'"
     and check to make sure that only the key(s) you wanted were added.
     ```
-=== "Windows"
-    You will be prompted for your password:
 
-    <figure>
-      <img src="../../assets/images/passphrase_while_copy.png" width="300"/>
-    </figure>
 
 **Exercise 3B:** login to the server without password
 
 Now you can login on to the server without having to type the password associated with your server login. However, because you protected your keys with a passphrase, you will need to type the passphrase to access your local keys:
 
-```
-$ ssh <hpcuser>@binfservms01.unibe.ch
+``` bash title="local"
+ssh <hpcuser>@binfservms01.unibe.ch
 ```
 
 ??? done "Result"
@@ -327,8 +350,8 @@ $ ssh <hpcuser>@binfservms01.unibe.ch
 
 We copied the public key to the server (with the `ssh-copy-id` command), so it should be on there. It is stored in the `ssh` folder. Check whether it's there with:
 
-```
-[<hpcuser>@binfservms01 ~]$ ls -l .ssh
+``` bash title="remote"
+ls -l .ssh
 ```
 
 Now the folder exists and contains a file with authorized keys:
@@ -340,8 +363,8 @@ Now the folder exists and contains a file with authorized keys:
 
 Check what's in there:
 
-```
-[<hpcuser>@binfservms01 ~]$ cat .ssh/authorized_keys
+```bash title="remote"
+cat .ssh/authorized_keys
 ```
 
 ??? done "Result"
@@ -366,7 +389,24 @@ Check what's in there:
 You probably don't want to re-type your passphrase every time you are connecting to the server. We will use `ssh-agent` to enable you to access your keys without having to type your passphrase every time you want to use them.
 
 !!! note
-    This part is platform dependent. Choose here therefore either **mac OS/Linux** or **Windows**.
+    This part is platform dependent. Choose here therefore either **PowerShell** or **mac OS/Linux**.
+
+=== "PowerShell"
+
+    Open PowerShell in admin mode (right-click on the PowerShell icon and choose "Run as administrator"). Then type:
+
+    ```
+    Get-Service ssh-agent | Set-Service -StartupType Automatic -PassThru | Start-Service
+    ```
+
+    To start the ssh-agent without the need to restart your system:
+
+    ```
+    start-ssh-agent.cmd
+    ```
+
+    You will be prompted for the password of your key. Type it and hit *ENTER*.
+
 
 === "mac OS/Linux"
 
@@ -400,82 +440,95 @@ You probably don't want to re-type your passphrase every time you are connecting
         Agent pid 23765
         ```
 
+**Exercise 4C:** List identities
+
+We have not added any identities to `ssh-agent` yet:
+
+```
+$ ssh-add -l
+```
+
+```
+The agent has no identities.
+$
+```
 
 
-    **Exercise 4C:** List identities
+**Exercise 4D:** add a key to ssh-agent
 
-    We have not added any identities to `ssh-agent` yet:
+So let's add our private key:
 
+=== "Powershell"
+    ``` powershell title="local"
+    ssh-add .\.ssh\id_rsa
     ```
-    $ ssh-add -l
-    ```
-
-    ```
-    The agent has no identities.
-    $
-    ```
-
-
-    **Exercise 4D:** add a key to ssh-agent
-
-    So let's add our private key:
-
-    ```
+=== "mac OS/Linux"
+    ``` bash title="local"
     $ ssh-add .ssh/id_rsa
     ```
-    This will require your passphrase:
 
-    ```
-    Enter passphrase for .ssh/id_rsa: ************* *ENTER*
-    Identity added: .ssh/id_rsa (<user>@laptop)
-    $
-    ```
+This will require your passphrase:
 
-    **Exercise 4E:** List identities
+```
+Enter passphrase for .ssh/id_rsa: ************* *ENTER*
+Identity added: .ssh/id_rsa (<user>@laptop)
+$
+```
 
-    Now check whether the identity has been added.
+**Exercise 4E:** List identities
 
-    ```
-    $ ssh-add -l
-    ```
+Now check whether the identity has been added.
+
+```
+$ ssh-add -l
+```
+
+Your key hash should appear:
+
+```
+3072 SHA256:uw6W41Pg5MMLKwASHK1G3JhRe+UOUQyt4NHNp2grVTo <user>@laptop (RSA)
+```
+
+**Exercise 4F:** use ssh-agent
+
+Since `ssh-agent` is running and has your private key added to it, you don't have to re-type your password if you want to acces your keys:
+
+```
+$ ssh <hpcuser>@binfservms01.unibe.ch
+```
+
+Will result in:
+
+```
+    ___ ____  _   _   _     _                         _           _            
+|_ _| __ )| | | | | |   (_)_ __  _   ___  __   ___| |_   _ ___| |_ ___ _ __
+    | ||  _ \| | | | | |   | | '_ \| | | \ \/ /  / __| | | | / __| __/ _ \ '__|
+    | || |_) | |_| | | |___| | | | | |_| |>  <  | (__| | |_| \__ \ ||  __/ |   
+|___|____/ \___/  |_____|_|_| |_|\__,_/_/\_\  \___|_|\__,_|___/\__\___|_|   
+
+Last login: Wed Oct 21 18:47:46 2020 from dhcp-99-231.vpn.unibe.ch
+[<hpcuser>@binfservms01 ~]$
+```
+
+**Exercise 4G:** reuse a running ssh-agent from a new terminal
+
+Open a new terminal, and check which identities are known by `ssh-agent`:
+
+```
+$ ssh-add -l
+```
+
+=== "Powershell"
 
     Your key hash should appear:
 
     ```
     3072 SHA256:uw6W41Pg5MMLKwASHK1G3JhRe+UOUQyt4NHNp2grVTo <user>@laptop (RSA)
-    $
     ```
 
+    This means that ssh agent will always run in the background, even if you close your terminal, or restart your comptuer. 
 
-    **Exercise 4F:** use ssh-agent
-
-    Since `ssh-agent` is running and has your private key added to it, you don't have to re-type your password if you want to acces your keys:
-
-    ```
-    $ ssh <hpcuser>@binfservms01.unibe.ch
-    ```
-
-    Will result in:
-
-    ```
-     ___ ____  _   _   _     _                         _           _            
-    |_ _| __ )| | | | | |   (_)_ __  _   ___  __   ___| |_   _ ___| |_ ___ _ __
-     | ||  _ \| | | | | |   | | '_ \| | | \ \/ /  / __| | | | / __| __/ _ \ '__|
-     | || |_) | |_| | | |___| | | | | |_| |>  <  | (__| | |_| \__ \ ||  __/ |   
-    |___|____/ \___/  |_____|_|_| |_|\__,_/_/\_\  \___|_|\__,_|___/\__\___|_|   
-
-    Last login: Wed Oct 21 18:47:46 2020 from dhcp-99-231.vpn.unibe.ch
-    [<hpcuser>@binfservms01 ~]$
-    ```
-
-
-    **Exercise 4G:** reuse a running ssh-agent from a new terminal
-
-    Open a new terminal, and check which identities are known by `ssh-agent`:
-
-    ```
-    $ ssh-add -l
-    ```
+=== "Mac OS/Linux"
 
     The added identities are gone:
 
@@ -496,83 +549,23 @@ You probably don't want to re-type your passphrase every time you are connecting
         Agent pid 23765
         ```
 
+**Exercise 4H:** use ssh-agent
 
-    **Exercise 4H:** use ssh-agent
+Now, that we have access to the `ssh-agent`, we can login without the requirement of a passphrase:
 
-    Now, that we have access to the `ssh-agent` again, we can login without the requirement of a passphrase:
+```
+$ ssh <hpcuser>@binfservms01.unibe.ch
+```
 
+??? done "Result"
     ```
-    $ ssh <hpcuser>@binfservms01.unibe.ch
-    ```
+        ___ ____  _   _   _     _                         _           _            
+    |_ _| __ )| | | | | |   (_)_ __  _   ___  __   ___| |_   _ ___| |_ ___ _ __
+        | ||  _ \| | | | | |   | | '_ \| | | \ \/ /  / __| | | | / __| __/ _ \ '__|
+        | || |_) | |_| | | |___| | | | | |_| |>  <  | (__| | |_| \__ \ ||  __/ |   
+    |___|____/ \___/  |_____|_|_| |_|\__,_/_/\_\  \___|_|\__,_|___/\__\___|_|   
 
-    ??? done "Result"
-        ```
-         ___ ____  _   _   _     _                         _           _            
-        |_ _| __ )| | | | | |   (_)_ __  _   ___  __   ___| |_   _ ___| |_ ___ _ __
-         | ||  _ \| | | | | |   | | '_ \| | | \ \/ /  / __| | | | / __| __/ _ \ '__|
-         | || |_) | |_| | | |___| | | | | |_| |>  <  | (__| | |_| \__ \ ||  __/ |   
-        |___|____/ \___/  |_____|_|_| |_|\__,_/_/\_\  \___|_|\__,_|___/\__\___|_|   
-
-        Last login: Wed Oct 21 18:47:46 2020 from dhcp-99-231.vpn.unibe.ch
-        [<hpcuser>@binfservms01 ~]$
-        ```
-
-=== "Windows"
-
-    **Exercise 4A:** List identities
-
-    ```sh
-    ssh-add -l
+    Last login: Wed Oct 21 18:47:46 2020 from dhcp-99-231.vpn.unibe.ch
+    [<hpcuser>@binfservms01 ~]$
     ```
 
-    ??? done "Result"
-        ```
-        error fetching identities for protocol 1: agent refused operation
-        error fetching identities for protocol 2: agent refused operation
-        The agent has no identities.
-        ```
-
-    **Exercise 4B:** Change the MobaXterm SSH configuration
-
-    In the MobaXterm gui go to **settings > configuration > SSH**. Check the option "Check Use internal SSH agent "MobAgent"" and uncheck "Use external Pageant". So it looks like this:
-
-    <figure>
-      <img src="../../assets/images/check_mobagent.png" width="700"/>
-    </figure>
-
-    You will be prompted to restart MobaXterm. Choose "Yes".
-
-    From now on, at startup you are asked to give your password for the rsa key (This is the one you chose at exercise 2A):
-
-    <figure>
-      <img src="../../assets/images/passphrase_at_startup.png" width="300"/>
-    </figure>
-
-    **Exercise 4C:** Check whether the identity is added:
-
-    ```sh
-    ssh-add -l
-    ```
-
-    ??? done "Result"
-        ```sh
-        2048 SHA256:iOWN8KEErX5BpIZQg0+zTPMfn6rtOg/l362yFQiY3fs Imported-Openssh-Key: C:\Users\<username>\DOCUME~1\MobaXterm\home\.ssh\id_rsa (RSA)
-        ```
-
-    **Exercise 4D:** Login without a passphrase, but with a passphrase protected key.
-
-    ```sh
-    $ ssh <hpcuser>@binfservms01.unibe.ch
-    ```
-
-    ??? done "Result"
-        ```
-         ___ ____  _   _   _     _                         _           _            
-        |_ _| __ )| | | | | |   (_)_ __  _   ___  __   ___| |_   _ ___| |_ ___ _ __
-         | ||  _ \| | | | | |   | | '_ \| | | \ \/ /  / __| | | | / __| __/ _ \ '__|
-         | || |_) | |_| | | |___| | | | | |_| |>  <  | (__| | |_| \__ \ ||  __/ |   
-        |___|____/ \___/  |_____|_|_| |_|\__,_/_/\_\  \___|_|\__,_|___/\__\___|_|   
-
-        Last login: Wed Oct 21 18:47:46 2020 from dhcp-99-231.vpn.unibe.ch
-        [<hpcuser>@binfservms01 ~]$
-        ```
