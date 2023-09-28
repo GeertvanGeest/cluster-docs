@@ -1,7 +1,7 @@
-If you are organizing a course that requires cluster resources, please contact our IT Team ([it@bioinformatics.unibe.ch](mailto:it@bioinformatics.unibe.ch)) well in advance (five weeks recommended), and provide us with the following information:
+If you are organizing a course that requires cluster resources, please contact [it@bioinformatics.unibe.ch](mailto:it@bioinformatics.unibe.ch) _at least two months in advance_, and provide him with the following information:
 
 - When is the course happening? (From-To)
-- do the students need an IBU Account by their name or will you use generic students* accounts ?
+- do the students need an IBU Account by their name or will you use students* accounts ?
 - how many students* accounts are needed and by which date ?
 - who are the teachers: provide an excel or tabulation-separated list with :
 
@@ -11,7 +11,7 @@ If you are organizing a course that requires cluster resources, please contact o
 4. Email address
 5. PI (username or email address)
   
-- if students needs an account with their real name, who are the students ?  Provide an excel or tabulation-separated list with :
+- who are the students ?  Provide an excel or tabulation-separated list with :
 
 1. IBU username if existing
 2. First Name
@@ -31,10 +31,5 @@ If you are organizing a course that requires cluster resources, please contact o
 - How long should the course data be retained ?
 - how long should the students accounts remain valid ?
 - do the students need to access the HPC resources (storage, slurm partition) after the end of the course and if yes until when ?
-- provide a cell phone emergency number for me to call one of the teachers in case of problems with the setup.  Who is that ?
-- Who should have my phone number for emergencies.  Emergency communication please only by phone, no email.
-- When should I be available for emergencies?  Date, Time From-To.
 - please ask the students to test their access to HPC and to the storage folder before the course starts
-
-Experience shows that Emergency Communication is most needed, but preparation thereof very much neglected.  If I do not get that info, I will not be able to organize and provide help when you will really need it.
 
