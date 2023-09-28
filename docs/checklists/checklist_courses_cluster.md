@@ -1,4 +1,6 @@
-If you are organizing a course that requires cluster resources, please contact [it@bioinformatics.unibe.ch](mailto:it@bioinformatics.unibe.ch) _at least two months in advance_, and provide him with the following information:
+If you are organizing a course that requires cluster resources, please contact [it@bioinformatics.unibe.ch](mailto:it@bioinformatics.unibe.ch) and provide the following information as soon as possible.
+
+>We need to know _at least two months in advance_ the dates of the course in order to reserve the resources and make sure there is no overlap with maintenance.  We need to know about each course, even it is recurring every year.
 
 - When is the course happening? (From-To)
 - do the students need an IBU Account by their name or will you use students* accounts ?
