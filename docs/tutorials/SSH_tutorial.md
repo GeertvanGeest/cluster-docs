@@ -162,8 +162,7 @@ ls -la .ssh
     the .ssh directory and authorized_keys file have been created with permissions that only allow you to read and write:
 
     ```
-    .ssh:
-    total 4
+    total 8
     drwx------. 2 <hpcuser> <hpcuser>   29 29 sep 11:14 .
     drwx------. 8 <hpcuser> <hpcuser> 4096 29 sep 11:14 ..
     -rw-------. 1 <hpcuser> <hpcuser> 0 29 sep 11:16 authorized_keys
