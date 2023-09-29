@@ -415,6 +415,8 @@ You probably don't want to re-type your passphrase every time you are connecting
 
 === "PowerShell"
 
+    **Exercise 4A:** start ssh-agent
+
     Open PowerShell in admin mode (right-click on the PowerShell icon and choose "Run as administrator"). Then type:
 
     ```
