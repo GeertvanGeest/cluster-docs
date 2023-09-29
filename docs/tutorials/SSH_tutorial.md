@@ -421,14 +421,18 @@ You probably don't want to re-type your passphrase every time you are connecting
     Get-Service ssh-agent | Set-Service -StartupType Automatic -PassThru | Start-Service
     ```
 
-    To start the ssh-agent without the need to restart your system:
+    To check that the ssh-agent is running:
 
     ```
-    start-ssh-agent.cmd
+    Get-Service -Name ssh-agent | Select-Object Status
     ```
 
-    You will be prompted for the password of your key. Type it and hit *ENTER*.
-
+    ??? done "Result"
+    ```
+     Status
+     ------
+    Running
+    ```
 
 === "mac OS/Linux"
 
