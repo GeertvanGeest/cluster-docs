@@ -147,6 +147,29 @@ ls .ssh
     [<hpcuser>@binfservms01 ~]$
     ```
 
+**Exercise 1E:** create .ssh directory and authorized_keys file on the server:
+
+We will create the `.ssh` directory and its authorized_keys file at the server and ensure it has proper permissions:
+
+``` bash title="remote"
+mkdir .ssh
+touch .ssh/authorized_keys
+chmod -R go-rwx .ssh
+ls -la .ssh
+```
+
+??? done "Result"
+    the .ssh directory and authorized_keys file have been created with permissions that only allow you to read and write:
+
+    ```
+    .ssh:
+    total 4
+    drwx------. 2 <hpcuser> <hpcuser>   29 29 sep 11:14 .
+    drwx------. 8 <hpcuser> <hpcuser> 4096 29 sep 11:14 ..
+    -rw-------. 1 <hpcuser> <hpcuser> 0 29 sep 11:16 authorized_keys
+    [<hpcuser>@binfservms01 ~]$
+    ```
+
 !!! warning "Warning"
     Logout before moving on to the next exercise.
 
