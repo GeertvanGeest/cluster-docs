@@ -140,7 +140,7 @@ ls .ssh
 ```
 
 ??? done "Result"
-    If you don't have a pubic key at the server (which will be the case for new users), you'll get a message the `.ssh` directory does not exist (but we will create one):
+    If you don't have a public key at the server (which will be the case for new users), you'll get a message the `.ssh` directory does not exist (but we will create one):
 
     ```
     ls: cannot access .ssh: No such file or directory
