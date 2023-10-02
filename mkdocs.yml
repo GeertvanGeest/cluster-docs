@@ -5,13 +5,13 @@ nav:
     - Home: index.md
     - Tutorials:
       - Getting started: tutorials/getting_started.md
+      - SSH Tutorial: tutorials/SSH_tutorial.md
+      - SLURM tutorial: tutorials/SLURM_tutorial.md
       - Introduction to containers:
         - Introduction to containers: tutorials/containers/introduction_containers.md
         - Managing docker: tutorials/containers/managing_docker.md
         - Dockerfiles: tutorials/containers/dockerfiles.md
         - Apptainer: tutorials/containers/apptainer.md
-      - SSH Tutorial: tutorials/SSH_tutorial.md
-      - SLURM tutorial: tutorials/SLURM_tutorial.md
       - Git & Gitlab: 
         - Set up: tutorials/gitlab/gitlab.md
         - CI & automatic image builds: tutorials/gitlab/gitlab_ci.md
