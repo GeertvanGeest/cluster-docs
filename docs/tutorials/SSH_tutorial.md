@@ -368,7 +368,7 @@ ssh <hpcuser>@binfservms01.unibe.ch
     ```
 
 
-**Exercise 3B:** check content of .ssh on the server
+**Exercise 3C:** check content of .ssh on the server
 
 We copied the public key to the server (with the `ssh-copy-id` command), so it should be on there. It is stored in the `ssh` folder. Check whether it's there with:
 
@@ -430,11 +430,11 @@ You probably don't want to re-type your passphrase every time you are connecting
     ```
 
     ??? done "Result"
-    ```
-     Status
-     ------
-    Running
-    ```
+        ```
+        Status
+        ------
+        Running
+        ```
 
 === "mac OS/Linux"
 
