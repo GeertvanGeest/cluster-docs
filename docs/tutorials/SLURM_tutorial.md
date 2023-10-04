@@ -19,7 +19,7 @@ To work conveniently on the cluster we will set up VScode. VScode is a code edit
 !!! note "Required installations"
     For this exercise you will need to have installed [VScode](https://code.visualstudio.com/download). In addition you would need to have followed the instructions to set up remote-ssh:
     
-    - [OpenSSH compatible client](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client). This is usually pre-installed on your OS.
+    - [OpenSSH compatible client](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client). This is usually pre-installed on your OS. You can check whether the command `ssh` exists. 
     - The Remote-SSH extension. To install, open VSCode and click on the extensions icon (four squares) on the left side of the window. Search for `Remote-SSH` and click on `Install`.
 
 Open VScode and click on the green or blue button in the bottom left corner. Select `Connect to Host...`, and then on `Configure SSH Host...`. Specify a the location for the config file. Use the same directory as where your keys are stored (so `~/.ssh`). A skeleton config file will be provided. Edit it, so it looks like this:
