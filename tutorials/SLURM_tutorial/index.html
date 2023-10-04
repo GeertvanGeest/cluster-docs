@@ -1,0 +1,1786 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/dna-svgrepo-com.svg">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.7">
+    
+    
+      
+        <title>SLURM tutorial - IBU cluster docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.20d9efc8.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#how-we-work" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="IBU cluster docs" class="md-header__button md-logo" aria-label="IBU cluster docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 0c17.7 0 32 14.3 32 32 0 59.8-30.3 107.5-69.4 146.6-28 28-62.5 53.5-97.3 77.4l-2.5 1.7c-11.9 8.1-23.8 16.1-35.5 23.9l-1.6 1c-6 4-11.9 7.9-17.8 11.9-20.9 14-40.8 27.7-59.3 41.5h118.7c-9.8-7.4-20.1-14.7-30.7-22.1l7-4.7 3-2c15.1-10.1 30.9-20.6 46.7-31.6 25 18.1 48.9 37.3 69.4 57.7 39 39.2 69.3 86.9 69.3 146.7 0 17.7-14.3 32-32 32s-32-14.3-32-32H64c0 17.7-14.3 32-32 32S0 497.7 0 480c0-59.8 30.3-107.5 69.4-146.6 28-28 62.5-53.5 97.3-77.4-34.8-23.9-69.3-49.3-97.3-77.4C30.3 139.5 0 91.8 0 32 0 14.3 14.3 0 32 0s32 14.3 32 32h320c0-17.7 14.3-32 32-32zm-77.4 384H109.4c-10.1 10.6-18.6 21.3-25.5 32h280.2c-6.8-10.7-15.3-21.4-25.5-32zM109.4 128h229.2c10.1-10.7 18.6-21.3 25.5-32H83.9c6.8 10.7 15.3 21.3 25.5 32zm55.4 48c18.4 13.8 38.4 27.5 59.3 41.5 20.9-14 40.8-27.7 59.3-41.5H164.7z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBU cluster docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SLURM tutorial
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://gitlab.bioinformatics.unibe.ch/docs/cluster-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    docs/cluster-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../getting_started/" class="md-tabs__link md-tabs__link--active">
+        Tutorials
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../documentation/storage/" class="md-tabs__link">
+        Documentation
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../coding_best_practices/best_practices/" class="md-tabs__link">
+        Coding Best Practices
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../checklists/checklist_courses_cluster/" class="md-tabs__link">
+        Checklists
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="IBU cluster docs" class="md-nav__button md-logo" aria-label="IBU cluster docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 0c17.7 0 32 14.3 32 32 0 59.8-30.3 107.5-69.4 146.6-28 28-62.5 53.5-97.3 77.4l-2.5 1.7c-11.9 8.1-23.8 16.1-35.5 23.9l-1.6 1c-6 4-11.9 7.9-17.8 11.9-20.9 14-40.8 27.7-59.3 41.5h118.7c-9.8-7.4-20.1-14.7-30.7-22.1l7-4.7 3-2c15.1-10.1 30.9-20.6 46.7-31.6 25 18.1 48.9 37.3 69.4 57.7 39 39.2 69.3 86.9 69.3 146.7 0 17.7-14.3 32-32 32s-32-14.3-32-32H64c0 17.7-14.3 32-32 32S0 497.7 0 480c0-59.8 30.3-107.5 69.4-146.6 28-28 62.5-53.5 97.3-77.4-34.8-23.9-69.3-49.3-97.3-77.4C30.3 139.5 0 91.8 0 32 0 14.3 14.3 0 32 0s32 14.3 32 32h320c0-17.7 14.3-32 32-32zm-77.4 384H109.4c-10.1 10.6-18.6 21.3-25.5 32h280.2c-6.8-10.7-15.3-21.4-25.5-32zM109.4 128h229.2c10.1-10.7 18.6-21.3 25.5-32H83.9c6.8 10.7 15.3 21.3 25.5 32zm55.4 48c18.4 13.8 38.4 27.5 59.3 41.5 20.9-14 40.8-27.7 59.3-41.5H164.7z"/></svg>
+
+    </a>
+    IBU cluster docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://gitlab.bioinformatics.unibe.ch/docs/cluster-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    docs/cluster-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Tutorials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting_started/" class="md-nav__link">
+        Getting started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SSH_tutorial/" class="md-nav__link">
+        SSH Tutorial
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          SLURM tutorial
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        SLURM tutorial
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-we-work" class="md-nav__link">
+    How we work:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#material" class="md-nav__link">
+    Material
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-setting-up-vscode-to-work-on-the-ibu-cluster" class="md-nav__link">
+    1. Setting up VSCode to work on the IBU cluster
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-slurm-introduction" class="md-nav__link">
+    2. SLURM introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-sbatch-options" class="md-nav__link">
+    3. sbatch options
+  </a>
+  
+    <nav class="md-nav" aria-label="3. sbatch options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-required-resources" class="md-nav__link">
+    3.1 Required resources
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-user-specific-options" class="md-nav__link">
+    3.2 User specific options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-output-and-error" class="md-nav__link">
+    3.3 Output and error
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-interactive-jobs" class="md-nav__link">
+    4. Interactive jobs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-modules-and-containers" class="md-nav__link">
+    5. Modules and containers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-job-arrays" class="md-nav__link">
+    6 Job arrays
+  </a>
+  
+    <nav class="md-nav" aria-label="6 Job arrays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-jobs-in-parallel" class="md-nav__link">
+    6.1 Jobs in parallel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-using-unix-arrays" class="md-nav__link">
+    6.2 Using UNIX arrays
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          Introduction to containers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introduction to containers" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Introduction to containers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../containers/introduction_containers/" class="md-nav__link">
+        Introduction to containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../containers/managing_docker/" class="md-nav__link">
+        Managing docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../containers/dockerfiles/" class="md-nav__link">
+        Dockerfiles
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../containers/apptainer/" class="md-nav__link">
+        Apptainer
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          Git & Gitlab
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Git & Gitlab" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Git & Gitlab
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gitlab/gitlab/" class="md-nav__link">
+        Set up
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gitlab/gitlab_ci/" class="md-nav__link">
+        CI & automatic image builds
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gitlab/git_cheatsheet/" class="md-nav__link">
+        Git cheatsheet
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_6">
+          Short tutorials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Short tutorials" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          Short tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../short/mount_cluster/" class="md-nav__link">
+        Mount cluster as network drive
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../short/download_s3/" class="md-nav__link">
+        Download from Amazon S3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../short/conda_env_container/" class="md-nav__link">
+        Conda env in a container
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../short/port_forwarding_apptainer/" class="md-nav__link">
+        Port forwarding for apptainer
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Documentation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Documentation" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Documentation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/storage/" class="md-nav__link">
+        Storage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Resources
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Resources" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Resources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/resources/software_modules/" class="md-nav__link">
+        Software modules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/resources/rstudio_server/" class="md-nav__link">
+        Rstudio server
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/resources/reference_genomes/" class="md-nav__link">
+        Reference genomes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/resources/shared_datasets/" class="md-nav__link">
+        Shared datasets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/resources/cloud_services/" class="md-nav__link">
+        Cloud services
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          SLURM usage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SLURM usage" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          SLURM usage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/SLURM_usage/slurm_general/" class="md-nav__link">
+        General
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/SLURM_usage/submit_jobs/" class="md-nav__link">
+        Submit jobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/SLURM_usage/partitions/" class="md-nav__link">
+        Partitions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/SLURM_usage/status_monitoring/" class="md-nav__link">
+        Status monitoring
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/SLURM_usage/allocation_options/" class="md-nav__link">
+        Allocation options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/SLURM_usage/slurm_variables/" class="md-nav__link">
+        Special variables
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/apptainer/" class="md-nav__link">
+        Apptainer
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Coding Best Practices
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Coding Best Practices" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Coding Best Practices
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coding_best_practices/best_practices/" class="md-nav__link">
+        Coding Best Practices
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Checklists
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Checklists" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Checklists
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../checklists/checklist_courses_cluster/" class="md-nav__link">
+        Prepare a course checklist
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-we-work" class="md-nav__link">
+    How we work:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#material" class="md-nav__link">
+    Material
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-setting-up-vscode-to-work-on-the-ibu-cluster" class="md-nav__link">
+    1. Setting up VSCode to work on the IBU cluster
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-slurm-introduction" class="md-nav__link">
+    2. SLURM introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-sbatch-options" class="md-nav__link">
+    3. sbatch options
+  </a>
+  
+    <nav class="md-nav" aria-label="3. sbatch options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-required-resources" class="md-nav__link">
+    3.1 Required resources
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-user-specific-options" class="md-nav__link">
+    3.2 User specific options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-output-and-error" class="md-nav__link">
+    3.3 Output and error
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-interactive-jobs" class="md-nav__link">
+    4. Interactive jobs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-modules-and-containers" class="md-nav__link">
+    5. Modules and containers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-job-arrays" class="md-nav__link">
+    6 Job arrays
+  </a>
+  
+    <nav class="md-nav" aria-label="6 Job arrays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-jobs-in-parallel" class="md-nav__link">
+    6.1 Jobs in parallel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-using-unix-arrays" class="md-nav__link">
+    6.2 Using UNIX arrays
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://gitlab.bioinformatics.unibe.ch/docs/cluster-docs/edit/master/docs/tutorials/SLURM_tutorial.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+  <h1>SLURM tutorial</h1>
+
+<div class="admonition note">
+<p class="admonition-title">Experienced users<p>Are you a more experienced user and looking for some specific SLURM documentation? Have a look at the <a href="../../documentation/SLURM_usage/submit_jobs/">SLURM usage page</a></p>
+</p>
+</div>
+<h2 id="how-we-work">How we work:</h2>
+<ul>
+<li>For each chapter (2 till 5) we&rsquo;ll have a few slides of presentation and exercises. We&rsquo;ll discuss the exercises and continue with the next chapter when most of you have finished the exercises of the current chapter.</li>
+<li>You&rsquo;re doing this to learn, so don&rsquo;t be tempted to look at the answers to early. If the given answer doesn&rsquo;t correspond to your answer, try to understand why.</li>
+<li>If you&rsquo;re stuck, ask your colleagues first. Someone who has just learned, is often better able to explain it than a teacher.</li>
+</ul>
+<h2 id="material">Material</h2>
+<p><a class="md-button" href="../../assets/pdf/SLURM_and_modules.pdf"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zm192 0v128h128L256 0zM64 224h24c30.9 0 56 25.1 56 56s-25.1 56-56 56h-8v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V240c0-8.8 7.2-16 16-16zm24 80c13.3 0 24-10.7 24-24s-10.7-24-24-24h-8v48h8zm72-64c0-8.8 7.2-16 16-16h24c26.5 0 48 21.5 48 48v64c0 26.5-21.5 48-48 48h-24c-8.8 0-16-7.2-16-16V240zm32 112h8c8.8 0 16-7.2 16-16v-64c0-8.8-7.2-16-16-16h-8v96zm96-128h48c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32v32h32c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32v48c0 8.8-7.2 16-16 16s-16-7.2-16-16V240c0-8.8 7.2-16 16-16z"/></svg></span> Download the presentation</a></p>
+<h2 id="1-setting-up-vscode-to-work-on-the-ibu-cluster">1. Setting up VSCode to work on the IBU cluster</h2>
+<p>To work conveniently on the cluster we will set up VScode. VScode is a code editor that can be used to edit files and run commands locally, but also on a remote server. In this subchapter we will set up VScode to work on the IBU cluster.</p>
+<div class="admonition note">
+<p class="admonition-title">Required installations</p>
+<p>For this exercise you will need to have installed <a href="https://code.visualstudio.com/download">VScode</a>. In addition you would need to have followed the instructions to set up remote-ssh:</p>
+<ul>
+<li><a href="https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client">OpenSSH compatible client</a>. This is usually pre-installed on your OS. You can check whether the command <code>ssh</code> exists. </li>
+<li>The Remote-SSH extension. To install, open VSCode and click on the extensions icon (four squares) on the left side of the window. Search for <code>Remote-SSH</code> and click on <code>Install</code>.</li>
+</ul>
+</div>
+<p>Open VScode and click on the green or blue button in the bottom left corner. Select <code>Connect to Host...</code>, and then on <code>Configure SSH Host...</code>. Specify a the location for the config file. Use the same directory as where your keys are stored (so <code>~/.ssh</code>). A skeleton config file will be provided. Edit it, so it looks like this:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Windows</label><label for="__tabbed_1_2">MacOS/Linux</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>Host ibucluster
+        User username
+        HostName binfservms01.unibe.ch
+        IdentityFile ~\.ssh\id_rsa
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>Host ibucluster
+        User username
+        HostName binfservms01.unibe.ch
+        IdentityFile ~/.ssh/id_rsa
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Save and close the config file. Now click again the green or blue button in the bottom left corner. Select <code>Connect to Host...</code>, and then on <code>ibucluster</code>. You will be asked which operating system is used on the remote. Specify &lsquo;Linux&rsquo;. If your private key is password protected, and you don&rsquo;t have the ssh agent running (this will be true for most Linux/Mac OS users), you will be asked for your private key password. </p>
+<p>Now that you have connected to the cluster, you will end up in your home directory on the head node (<code>/home/yourusername</code>). However, we want to work in your personal directory on <code>/data</code>. This directory is at <code>/data/users/yourusername</code>. First, we will create a working directory called <code>slurm_tutorial</code> in your personal directory. Write in the terminal:</p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>/data/users/yourusername/slurm_tutorial
+</code></pre></div>
+<p>After that, open this directory as a working directory in VSCode by clicking the blue button &lsquo;Open Folder&rsquo; or by going to &lsquo;File&rsquo; &gt; &lsquo;Open Folder&rsquo;. Type the path to the directory <code>slurm_tutorial</code> in your personal directory (<code>/data/users/yourusername/slurm_tutorial</code>). You will now be able to edit files in this directory.</p>
+<h2 id="2-slurm-introduction">2. SLURM introduction</h2>
+<iframe width="640" height="360" src="https://tube.switch.ch/embed/bfbb68ea" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>From now on you will work in VSCode. Make sure you have set <code>/data/users/yourusername/slurm_tutorial</code> as your working directory. </p>
+</div>
+<p><strong>Exercise 2A:</strong> Create a script named <code>sleep.sh</code> (File &gt; New Text File). Write a command in it that lets the system sleep for 120 seconds (use the command <code>sleep</code>).</p>
+<details class="done">
+<summary>Answer</summary>
+<p>Your script should look like this:
+<div class="highlight"><span class="filename">sleep.sh</span><pre><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+
+sleep<span class="w"> </span><span class="m">120</span>
+</code></pre></div></p>
+</details>
+<p>You could submit this script as a job to the cluster with the following command:</p>
+<div class="highlight"><pre><span></span><code>sbatch<span class="w"> </span><span class="se">\</span>
+--cpus-per-task<span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+--mem-per-cpu<span class="o">=</span>100M<span class="w"> </span><span class="se">\</span>
+--time<span class="o">=</span><span class="m">00</span>:05:00<span class="w"> </span><span class="se">\</span>
+sleep.sh
+</code></pre></div>
+<p><strong>Exercise 2B:</strong> Rewrite the script <code>sleep.sh</code> in a way that you integrate the SLURM options in the script (hint: use <code>#SBATCH</code>).</p>
+<details class="done">
+<summary>Answers</summary>
+<p>Your script should look like this:
+<div class="highlight"><span class="filename">sleep.sh</span><pre><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+
+<span class="c1">#SBATCH --cpus-per-task=1</span>
+<span class="c1">#SBATCH --mem-per-cpu=100M</span>
+<span class="c1">#SBATCH --time=00:05:00</span>
+
+sleep<span class="w"> </span><span class="m">120</span>
+</code></pre></div></p>
+</details>
+<p><strong>Exercise 2C:</strong> Submit your script with integrated <code>sbatch</code> options to the cluster. Check out the status of the job (use <code>squeue</code>).</p>
+<details class="done">
+<summary>Answer</summary>
+<p>Sumbit it like this:
+<div class="highlight"><pre><span></span><code>sbatch<span class="w"> </span>sleep.sh
+</code></pre></div></p>
+<p>Check out the status:
+<div class="highlight"><pre><span></span><code>squeue --job [JOBID]
+</code></pre></div>
+or
+<div class="highlight"><pre><span></span><code>squeue -A [USERNAME]
+</code></pre></div></p>
+</details>
+<h2 id="3-sbatch-options">3. sbatch options</h2>
+<iframe width="640" height="360" src="https://tube.switch.ch/embed/e01c25f4" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+
+<h3 id="31-required-resources">3.1 Required resources</h3>
+<p><strong>Exercise 3.1A:</strong> The command <code>sleep</code> requires none or very little computational resources. Modify the options <code>--time</code> and <code>--mem-per-cpu</code> to minimize the allocation. Submit it to the cluster with <code>sbatch</code> to see if it still works.</p>
+<details class="done">
+<summary>Answer</summary>
+<p>Your script could look like this:
+<div class="highlight"><span class="filename">sleep.sh</span><pre><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+
+<span class="c1">#SBATCH --cpus-per-task=1</span>
+<span class="c1">#SBATCH --mem-per-cpu=1M</span>
+<span class="c1">#SBATCH --time=00:02:10</span>
+
+sleep<span class="w"> </span><span class="m">120</span>
+</code></pre></div></p>
+</details>
+<h3 id="32-user-specific-options">3.2 User specific options</h3>
+<p><strong>Exercise 3.2A:</strong> Add options to <code>sleep.sh</code> that:</p>
+<ul>
+<li>gives it a name</li>
+<li>provide your e-mail address</li>
+<li>e-mails you when it begins and ends</li>
+</ul>
+<p>Submit it to the cluster, and answer the following questions based on the information in the e-mails:</p>
+<ul>
+<li>How long was your job queued?</li>
+<li>On which node did it run?</li>
+<li>How long did the job take?</li>
+</ul>
+<details class="done">
+<summary>Answer</summary>
+<p>Your script should look like this:
+<div class="highlight"><span class="filename">sleep.sh</span><pre><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+
+<span class="c1">#SBATCH --cpus-per-task=1</span>
+<span class="c1">#SBATCH --mem-per-cpu=1M</span>
+<span class="c1">#SBATCH --time=00:02:10</span>
+<span class="c1">#SBATCH --job-name=go_to_sleep</span>
+<span class="c1">#SBATCH --mail-user=user@students.unibe.ch</span>
+<span class="c1">#SBATCH --mail-type=begin,end</span>
+
+sleep<span class="w"> </span><span class="m">120</span>
+</code></pre></div></p>
+<ul>
+<li>The queued time is in the subject of the first e-mail.</li>
+<li>The node you can find in the second e-mail at <code>NodeList</code></li>
+<li>The time the job took is also in the second e-mail at <code>Elapsed</code></li>
+</ul>
+</details>
+<h3 id="33-output-and-error">3.3 Output and error</h3>
+<p><strong>Exercise 3.3A:</strong> Create a new script called <code>output_and_error.sh</code> that:</p>
+<ul>
+<li>writes a message to stdout (hint: use <code>echo</code>).</li>
+<li>generates an error by using <code>ls</code> on a file that doesn&rsquo;t exist.</li>
+</ul>
+<p>Run it at the login node. Where do stdin and stdout end up?</p>
+<details class="done">
+<summary>Answer</summary>
+<p>Your script should look like this:
+<div class="highlight"><span class="filename">output_and_error.sh</span><pre><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;I am output!&quot;</span>
+
+ls<span class="w"> </span>my_nonexisting_file.txt
+</code></pre></div></p>
+<p>The output and error end up both at the console.</p>
+</details>
+<p><strong>Exercise 3.3B:</strong> Add sbatch options to <code>output_and_error.sh</code> that we have learned before (job name, email, cpu, memory and time) with sensible parameters. Now also include <code>--output</code> and <code>--error</code>. Use <code>%j</code> to associate the files with the job ID.</p>
+<p>Submit it with sbatch. Were your expected files created? Where did stdout and stderr end up?</p>
+<details class="done">
+<summary>Answer</summary>
+<p>Your script should look like this:
+<div class="highlight"><span class="filename">output_and_error.sh</span><pre><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+
+<span class="c1">#SBATCH --cpus-per-task=1</span>
+<span class="c1">#SBATCH --mem-per-cpu=100M</span>
+<span class="c1">#SBATCH --time=00:01:00</span>
+<span class="c1">#SBATCH --job-name=output_and_error</span>
+<span class="c1">#SBATCH --mail-user=user@students.unibe.ch</span>
+<span class="c1">#SBATCH --mail-type=begin,end</span>
+<span class="c1">#SBATCH --output=/data/users/[USER]/slurm_tutorial/output_%j.o</span>
+<span class="c1">#SBATCH --error=/data/users/[USER]/slurm_tutorial/error_%j.e</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;I am output!&quot;</span>
+
+ls<span class="w"> </span>my_nonexisting_file.txt
+</code></pre></div></p>
+<p>Stdout should be in <code>/data/users/[USER]/slurm_tutorial/output_[JOBID].o</code> and stderr in <code>/data/users/[USER]/slurm_tutorial/error_[JOBID].e</code></p>
+</details>
+<h2 id="4-interactive-jobs">4. Interactive jobs</h2>
+<iframe width="640" height="360" src="https://tube.switch.ch/embed/cc9095ef" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+
+<p><strong>Exercise 4A:</strong> Create interactive job with <code>srun</code>. Use the options <code>--cpus-per-task</code>, <code>--mem-per-cpu</code> and <code>--time</code>. Allocate  maximum 1 CPU, 500 MB memory for 5 minutes.</p>
+<ul>
+<li>What is your job ID?</li>
+<li>To which node is your job submitted?</li>
+</ul>
+<details class="done">
+<summary>Answer</summary>
+<p>Your command should look like this:</p>
+<div class="highlight"><pre><span></span><code>srun<span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="m">1</span><span class="w">  </span>--mem-per-cpu<span class="o">=</span>500M<span class="w"> </span>--time<span class="o">=</span><span class="m">00</span>:05:00<span class="w"> </span>--pty<span class="w"> </span>bash
+</code></pre></div>
+<p>You can find the job ID and node with <code>squeue</code>. However the node you&rsquo;re on also appears in the shell, e.g.:
+<div class="highlight"><pre><span></span><code><span class="o">[</span>gvangeest@binfservms01<span class="w"> </span>~<span class="o">]</span>$
+</code></pre></div></p>
+<p>becomes something different, e.g.:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>gvangeest@binfservas07<span class="w"> </span>~<span class="o">]</span>$
+</code></pre></div>
+</details>
+<h2 id="5-modules-and-containers">5. Modules and containers</h2>
+<iframe width="640" height="360" src="https://tube.switch.ch/embed/c64a439a" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+
+<p><strong>Exercise 5A:</strong> Load the module for the latest version of <code>minimap2</code> (look it up here: <a href="https://www.vital-it.ch/services">https://www.vital-it.ch/services</a>), and check out the help documentation with <code>minimap2 --help</code>.</p>
+<details class="done">
+<summary>Answer</summary>
+<p>The command to load minimap2 is:
+<div class="highlight"><pre><span></span><code>module add UHTS/Analysis/minimap2/2.17
+</code></pre></div></p>
+</details>
+<p><strong>Exercise 5B:</strong> Start an interactive job with <code>srun</code>, and allocate little resources. Is minimap2 still available in your interactive job?</p>
+<details class="done">
+<summary>Answer</summary>
+<p>Yes, it should still be available. If a job is submitted, the current environment of the user is used for that job to run in. However, in a script, it is good practice to always include the <code>module add</code> commands, to make your script re-usable and sharable.</p>
+</details>
+<p>We&rsquo;ll now be working with some actual biological data. Go to <code>/data/courses/HPC_tutorial/ecoli/</code> and see what&rsquo;s in there.</p>
+<p><strong>Exercise 5C:</strong> Submit a job to run <code>minimap2</code> to align sequence reads of sample 1 to the reference <code>ecoli-strK12-MG1655.fasta</code>. Call the script <code>run_minimap2.sh</code>. Use the sbatch options for cpu, memory, time, job name, e-mail, output and error. This job requires:</p>
+<ul>
+<li>3 CPU</li>
+<li>200M of memory per cpu</li>
+<li>1 minute</li>
+</ul>
+<p>You can find the commands to run <code>minimap2</code> below. Add the sbatch options and <code>module add</code> command to this script and submit to  the cluster.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do <strong>not</strong> run this on the head node!</p>
+</div>
+<div class="highlight"><span class="filename">run_minimap2.sh</span><pre><span></span><code><span class="nv">REFERENCE_DIR</span><span class="o">=</span>/data/courses/HPC_tutorial/ecoli/reference
+<span class="nv">READS_DIR</span><span class="o">=</span>/data/courses/HPC_tutorial/ecoli/reads
+<span class="nv">ALIGN_DIR</span><span class="o">=</span>/data/users/<span class="o">[</span>USER<span class="o">]</span>/slurm_tutorial/ecoli/alignment
+
+mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$ALIGN_DIR</span>
+
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$READS_DIR</span>
+
+minimap2<span class="w"> </span><span class="se">\</span>
+-a<span class="w"> </span><span class="se">\</span>
+-x<span class="w"> </span>sr<span class="w"> </span><span class="se">\</span>
+<span class="nv">$REFERENCE_DIR</span>/ecoli-strK12-MG1655.fasta<span class="w"> </span><span class="se">\</span>
+ecoli_sample1.fastq<span class="w"> </span><span class="se">\</span>
+&gt;<span class="w"> </span><span class="nv">$ALIGN_DIR</span>/ecoli_sample1.fastq.sam
+</code></pre></div>
+<details class="done">
+<summary>Answer</summary>
+<p>Your script should look like this:
+<div class="highlight"><span class="filename">run_minimap2.sh</span><pre><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+
+<span class="c1">#SBATCH --cpus-per-task=3</span>
+<span class="c1">#SBATCH --mem-per-cpu=200M</span>
+<span class="c1">#SBATCH --time=00:01:00</span>
+<span class="c1">#SBATCH --job-name=align_reads</span>
+<span class="c1">#SBATCH --mail-user=user@students.unibe.ch</span>
+<span class="c1">#SBATCH --mail-type=begin,end</span>
+<span class="c1">#SBATCH --output=/data/users/[USER]/slurm_tutorial/output_alignment_%j.o</span>
+<span class="c1">#SBATCH --error=/data/users/[USER]/slurm_tutorial/error_alignment_%j.e</span>
+
+module<span class="w"> </span>add<span class="w"> </span>UHTS/Analysis/minimap2/2.17
+
+<span class="nv">REFERENCE_DIR</span><span class="o">=</span>/data/courses/HPC_tutorial/ecoli/reference
+<span class="nv">READS_DIR</span><span class="o">=</span>/data/courses/HPC_tutorial/ecoli/reads
+<span class="nv">ALIGN_DIR</span><span class="o">=</span>/data/users/<span class="o">[</span>USER<span class="o">]</span>/slurm_tutorial/ecoli/alignment
+
+mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$ALIGN_DIR</span>
+
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$READS_DIR</span>
+
+minimap2<span class="w"> </span><span class="se">\</span>
+-a<span class="w"> </span><span class="se">\</span>
+-x<span class="w"> </span>sr<span class="w"> </span><span class="se">\</span>
+<span class="nv">$REFERENCE_DIR</span>/ecoli-strK12-MG1655.fasta<span class="w"> </span><span class="se">\</span>
+ecoli_sample1.fastq<span class="w"> </span><span class="se">\</span>
+&gt;<span class="w"> </span><span class="nv">$ALIGN_DIR</span>/ecoli_sample1.fastq.sam
+</code></pre></div></p>
+</details>
+<p>As you have learned in the <a href="../containers/apptainer/">apptainer exercises</a>, you can run applications in a container. We have created a container with <code>minimap2</code> in it. You can find it at <code>/data/courses/HPC_tutorial/containers/minimap2.sif</code>. We&rsquo;ll use this container to run <code>minimap2</code> in the next exercise.</p>
+<p><strong>Exercise 5D:</strong> Do the same job submission as in exercise 4C, but now run the command in a container with apptainer. Make sure to add the option <code>--bind /data/courses</code> to the <code>apptainer exec</code> command, because by default the container has no access to the <code>/data/courses</code> directory.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>A command to run an application in a container looks like this:</p>
+<div class="highlight"><pre><span></span><code>apptainer<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--bind<span class="w"> </span>/data/courses<span class="w"> </span>/path/to/container.sif<span class="w"> </span><span class="nb">command</span>
+</code></pre></div>
+</div>
+<details class="done">
+<summary>Answer</summary>
+<p>The script looks the same as in exercise 4C, but now with the <code>apptainer exec</code> command:
+<div class="highlight"><span class="filename">run_minimap2.sh</span><pre><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+
+<span class="c1">#SBATCH --cpus-per-task=3</span>
+<span class="c1">#SBATCH --mem-per-cpu=200M</span>
+<span class="c1">#SBATCH --time=00:01:00</span>
+<span class="c1">#SBATCH --job-name=align_reads</span>
+<span class="c1">#SBATCH --mail-user=user@students.unibe.ch</span>
+<span class="c1">#SBATCH --mail-type=begin,end</span>
+<span class="c1">#SBATCH --output=/data/users/[USER]/slurm_tutorial/output_alignment_%j.o</span>
+<span class="c1">#SBATCH --error=/data/users/[USER]/slurm_tutorial/error_alignment_%j.e</span>
+
+module<span class="w"> </span>add<span class="w"> </span>UHTS/Analysis/minimap2/2.17
+
+<span class="nv">REFERENCE_DIR</span><span class="o">=</span>/data/courses/HPC_tutorial/ecoli/reference
+<span class="nv">READS_DIR</span><span class="o">=</span>/data/courses/HPC_tutorial/ecoli/reads
+<span class="nv">ALIGN_DIR</span><span class="o">=</span>/data/users/<span class="o">[</span>USER<span class="o">]</span>/slurm_tutorial/ecoli/alignment
+
+mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$ALIGN_DIR</span>
+
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$READS_DIR</span>
+
+apptainer<span class="w"> </span><span class="nb">exec</span><span class="w"> </span><span class="se">\</span>
+--bind<span class="w"> </span>/data/courses<span class="w"> </span><span class="se">\</span>
+/data/courses/HPC_tutorial/containers/minimap2.sif<span class="w"> </span><span class="se">\</span>
+minimap2<span class="w"> </span><span class="se">\</span>
+-a<span class="w"> </span><span class="se">\</span>
+-x<span class="w"> </span>sr<span class="w"> </span><span class="se">\</span>
+<span class="nv">$REFERENCE_DIR</span>/ecoli-strK12-MG1655.fasta<span class="w"> </span><span class="se">\</span>
+ecoli_sample1.fastq<span class="w"> </span><span class="se">\</span>
+&gt;<span class="w"> </span><span class="nv">$ALIGN_DIR</span>/ecoli_sample1.fastq.sam
+</code></pre></div></p>
+</details>
+<h2 id="6-job-arrays">6 Job arrays</h2>
+<iframe width="640" height="360" src="https://tube.switch.ch/embed/5e1e7ca8" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+
+<h3 id="61-jobs-in-parallel">6.1 Jobs in parallel</h3>
+<p><strong>Exercise 6.1A:</strong> Generate a script <code>array.sh</code> with the sbatch options for cpu, memory, time, job name, e-mail, output and error. Now also include the option to initiate an array counting from 10 till 15. In the script, let each element of the array create a file with the <code>$SLURM_ARRAY_TASK_ID</code> in it&rsquo;s name in your home directory. In order to check out <code>squeue</code>, let the system sleep for 60 seconds after generating the file.</p>
+<details class="hint">
+<summary>Hint</summary>
+<p>Your script (without sbatch options) should look something like this:
+<div class="highlight"><span class="filename">array.sh</span><pre><span></span><code>touch<span class="w"> </span>/data/users/<span class="o">[</span>USER<span class="o">]</span>/slurm_tutorial/file_<span class="nv">$SLURM_ARRAY_TASK_ID</span>.txt
+sleep<span class="w"> </span><span class="m">60</span>
+</code></pre></div></p>
+</details>
+<ul>
+<li>How many jobs were created?</li>
+<li>How many error and output files were created?</li>
+</ul>
+<details class="done">
+<summary>Answer</summary>
+<p>Your script should like like this:
+<div class="highlight"><span class="filename">array.sh</span><pre><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+
+<span class="c1">#SBATCH --cpus-per-task=1</span>
+<span class="c1">#SBATCH --mem-per-cpu=1M</span>
+<span class="c1">#SBATCH --time=00:02:00</span>
+<span class="c1">#SBATCH --job-name=arrays</span>
+<span class="c1">#SBATCH --mail-user=user@students.unibe.ch</span>
+<span class="c1">#SBATCH --mail-type=begin,end</span>
+<span class="c1">#SBATCH --output=/data/users/[USER]/slurm_tutorial/output_%j.o</span>
+<span class="c1">#SBATCH --error=/data/users/[USER]/slurm_tutorial/error_%j.e</span>
+<span class="c1">#SBATCH --array=10-15</span>
+
+touch<span class="w"> </span>/data/users/<span class="o">[</span>USER<span class="o">]</span>/slurm_tutorial/file_<span class="nv">$SLURM_ARRAY_TASK_ID</span>.txt
+sleep<span class="w"> </span><span class="m">60</span>
+</code></pre></div></p>
+<ul>
+<li>Six jobs were created</li>
+<li>Six output and six error files are created</li>
+</ul>
+</details>
+<h3 id="62-using-unix-arrays">6.2 Using UNIX arrays</h3>
+<p><strong>Exercise 6.2A:</strong> Modify the script in exercise 4C to align the reads of all three samples in separate jobs. Use the sbatch <code>--array</code> option in combination with a UNIX array, and submit it to the cluster. Check out the output files.</p>
+<details class="hint">
+<summary>Hint</summary>
+<p>Modify the script in exercise 4C with the following steps:</p>
+<ul>
+<li>Add the option <code>--array</code> to the sbatch options (remember: there are three files and UNIX starts counting at 0)</li>
+<li>Make the directory with reads the current directory, and generate variable with a UNIX array containing the read files. (Use <code>()</code> and <code>*</code>, e.g. <code>FILES=(*.fastq)</code>)</li>
+<li>Replace the read file name that is used as input for <code>minimap2</code> with something like <code>${FILES[$SLURM_ARRAY_TASK_ID]}</code></li>
+<li>Add <code>.sam</code> to the variable file name to modify the output file name.</li>
+</ul>
+</details>
+<details class="done">
+<summary>Answer</summary>
+<p>Your script should look like this:
+<div class="highlight"><span class="filename">run_minimap2.sh</span><pre><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+
+<span class="c1">#SBATCH --cpus-per-task=3</span>
+<span class="c1">#SBATCH --mem-per-cpu=200M</span>
+<span class="c1">#SBATCH --time=00:01:00</span>
+<span class="c1">#SBATCH --job-name=align_reads</span>
+<span class="c1">#SBATCH --mail-user=user@students.unibe.ch</span>
+<span class="c1">#SBATCH --mail-type=begin,end</span>
+<span class="c1">#SBATCH --output=/data/users/[USER]/slurm_tutorial/output_alignment_%j.o</span>
+<span class="c1">#SBATCH --error=/data/users/[USER]/slurm_tutorial/error_alignment_%j.e</span>
+<span class="c1">#SBATCH --array=0-2</span>
+
+module<span class="w"> </span>add<span class="w"> </span>UHTS/Analysis/minimap2/2.17
+
+<span class="nv">REFERENCE_DIR</span><span class="o">=</span>/data/courses/HPC_tutorial/ecoli/reference
+<span class="nv">READS_DIR</span><span class="o">=</span>/data/courses/HPC_tutorial/ecoli/reads
+<span class="nv">ALIGN_DIR</span><span class="o">=</span>/data/users/<span class="o">[</span>USER<span class="o">]</span>/slurm_tutorial/ecoli/alignment
+
+mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$ALIGN_DIR</span>
+
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$READS_DIR</span>
+
+<span class="nv">FILES</span><span class="o">=(</span>*.fastq<span class="o">)</span>
+
+apptainer<span class="w"> </span><span class="nb">exec</span><span class="w"> </span><span class="se">\</span>
+--bind<span class="w"> </span>/data/courses<span class="w"> </span><span class="se">\</span>
+/data/courses/HPC_tutorial/containers/minimap2.sif<span class="w"> </span><span class="se">\</span>
+minimap2<span class="w"> </span><span class="se">\</span>
+-a<span class="w"> </span><span class="se">\</span>
+-x<span class="w"> </span>sr<span class="w"> </span><span class="se">\</span>
+<span class="nv">$REFERENCE_DIR</span>/ecoli-strK12-MG1655.fasta<span class="w"> </span><span class="se">\</span>
+<span class="si">${</span><span class="nv">FILES</span><span class="p">[</span><span class="nv">$SLURM_ARRAY_TASK_ID</span><span class="p">]</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+&gt;<span class="w"> </span><span class="nv">$ALIGN_DIR</span>/<span class="si">${</span><span class="nv">FILES</span><span class="p">[</span><span class="nv">$SLURM_ARRAY_TASK_ID</span><span class="p">]</span><span class="si">}</span>.sam<span class="w">    </span>
+</code></pre></div></p>
+</details>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../SSH_tutorial/" class="md-footer__link md-footer__link--prev" aria-label="Previous: SSH Tutorial" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              SSH Tutorial
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../containers/introduction_containers/" class="md-footer__link md-footer__link--next" aria-label="Next: Introduction to containers" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Introduction to containers
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.8492ddcf.min.js"></script>
+      
+    
+  </body>
+</html>

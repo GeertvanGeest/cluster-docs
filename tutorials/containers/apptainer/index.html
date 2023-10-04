@@ -1,0 +1,1513 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/dna-svgrepo-com.svg">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.7">
+    
+    
+      
+        <title>Apptainer - IBU cluster docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.20d9efc8.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#learning-outcomes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="IBU cluster docs" class="md-header__button md-logo" aria-label="IBU cluster docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 0c17.7 0 32 14.3 32 32 0 59.8-30.3 107.5-69.4 146.6-28 28-62.5 53.5-97.3 77.4l-2.5 1.7c-11.9 8.1-23.8 16.1-35.5 23.9l-1.6 1c-6 4-11.9 7.9-17.8 11.9-20.9 14-40.8 27.7-59.3 41.5h118.7c-9.8-7.4-20.1-14.7-30.7-22.1l7-4.7 3-2c15.1-10.1 30.9-20.6 46.7-31.6 25 18.1 48.9 37.3 69.4 57.7 39 39.2 69.3 86.9 69.3 146.7 0 17.7-14.3 32-32 32s-32-14.3-32-32H64c0 17.7-14.3 32-32 32S0 497.7 0 480c0-59.8 30.3-107.5 69.4-146.6 28-28 62.5-53.5 97.3-77.4-34.8-23.9-69.3-49.3-97.3-77.4C30.3 139.5 0 91.8 0 32 0 14.3 14.3 0 32 0s32 14.3 32 32h320c0-17.7 14.3-32 32-32zm-77.4 384H109.4c-10.1 10.6-18.6 21.3-25.5 32h280.2c-6.8-10.7-15.3-21.4-25.5-32zM109.4 128h229.2c10.1-10.7 18.6-21.3 25.5-32H83.9c6.8 10.7 15.3 21.3 25.5 32zm55.4 48c18.4 13.8 38.4 27.5 59.3 41.5 20.9-14 40.8-27.7 59.3-41.5H164.7z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBU cluster docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Apptainer
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://gitlab.bioinformatics.unibe.ch/docs/cluster-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    docs/cluster-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../getting_started/" class="md-tabs__link md-tabs__link--active">
+        Tutorials
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../documentation/storage/" class="md-tabs__link">
+        Documentation
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../coding_best_practices/best_practices/" class="md-tabs__link">
+        Coding Best Practices
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../checklists/checklist_courses_cluster/" class="md-tabs__link">
+        Checklists
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="IBU cluster docs" class="md-nav__button md-logo" aria-label="IBU cluster docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 0c17.7 0 32 14.3 32 32 0 59.8-30.3 107.5-69.4 146.6-28 28-62.5 53.5-97.3 77.4l-2.5 1.7c-11.9 8.1-23.8 16.1-35.5 23.9l-1.6 1c-6 4-11.9 7.9-17.8 11.9-20.9 14-40.8 27.7-59.3 41.5h118.7c-9.8-7.4-20.1-14.7-30.7-22.1l7-4.7 3-2c15.1-10.1 30.9-20.6 46.7-31.6 25 18.1 48.9 37.3 69.4 57.7 39 39.2 69.3 86.9 69.3 146.7 0 17.7-14.3 32-32 32s-32-14.3-32-32H64c0 17.7-14.3 32-32 32S0 497.7 0 480c0-59.8 30.3-107.5 69.4-146.6 28-28 62.5-53.5 97.3-77.4-34.8-23.9-69.3-49.3-97.3-77.4C30.3 139.5 0 91.8 0 32 0 14.3 14.3 0 32 0s32 14.3 32 32h320c0-17.7 14.3-32 32-32zm-77.4 384H109.4c-10.1 10.6-18.6 21.3-25.5 32h280.2c-6.8-10.7-15.3-21.4-25.5-32zM109.4 128h229.2c10.1-10.7 18.6-21.3 25.5-32H83.9c6.8 10.7 15.3 21.3 25.5 32zm55.4 48c18.4 13.8 38.4 27.5 59.3 41.5 20.9-14 40.8-27.7 59.3-41.5H164.7z"/></svg>
+
+    </a>
+    IBU cluster docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://gitlab.bioinformatics.unibe.ch/docs/cluster-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    docs/cluster-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Tutorials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/" class="md-nav__link">
+        Getting started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SSH_tutorial/" class="md-nav__link">
+        SSH Tutorial
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SLURM_tutorial/" class="md-nav__link">
+        SLURM tutorial
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          Introduction to containers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introduction to containers" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Introduction to containers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction_containers/" class="md-nav__link">
+        Introduction to containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../managing_docker/" class="md-nav__link">
+        Managing docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dockerfiles/" class="md-nav__link">
+        Dockerfiles
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Apptainer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Apptainer
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-outcomes" class="md-nav__link">
+    Learning outcomes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#material" class="md-nav__link">
+    Material
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    Exercises
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#login-to-remote-and-start-an-interactive-session" class="md-nav__link">
+    Login to remote and start an interactive session
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pulling-an-image" class="md-nav__link">
+    Pulling an image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executing-an-image" class="md-nav__link">
+    Executing an image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mounting-with-apptainer" class="md-nav__link">
+    Mounting with Apptainer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interactive-shell" class="md-nav__link">
+    Interactive shell
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-bioinformatics-example-extra" class="md-nav__link">
+    A bioinformatics example (extra)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          Git & Gitlab
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Git & Gitlab" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Git & Gitlab
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gitlab/gitlab/" class="md-nav__link">
+        Set up
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gitlab/gitlab_ci/" class="md-nav__link">
+        CI & automatic image builds
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gitlab/git_cheatsheet/" class="md-nav__link">
+        Git cheatsheet
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_6">
+          Short tutorials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Short tutorials" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          Short tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../short/mount_cluster/" class="md-nav__link">
+        Mount cluster as network drive
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../short/download_s3/" class="md-nav__link">
+        Download from Amazon S3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../short/conda_env_container/" class="md-nav__link">
+        Conda env in a container
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../short/port_forwarding_apptainer/" class="md-nav__link">
+        Port forwarding for apptainer
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Documentation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Documentation" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Documentation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../documentation/storage/" class="md-nav__link">
+        Storage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Resources
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Resources" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Resources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../documentation/resources/software_modules/" class="md-nav__link">
+        Software modules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../documentation/resources/rstudio_server/" class="md-nav__link">
+        Rstudio server
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../documentation/resources/reference_genomes/" class="md-nav__link">
+        Reference genomes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../documentation/resources/shared_datasets/" class="md-nav__link">
+        Shared datasets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../documentation/resources/cloud_services/" class="md-nav__link">
+        Cloud services
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          SLURM usage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SLURM usage" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          SLURM usage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../documentation/SLURM_usage/slurm_general/" class="md-nav__link">
+        General
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../documentation/SLURM_usage/submit_jobs/" class="md-nav__link">
+        Submit jobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../documentation/SLURM_usage/partitions/" class="md-nav__link">
+        Partitions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../documentation/SLURM_usage/status_monitoring/" class="md-nav__link">
+        Status monitoring
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../documentation/SLURM_usage/allocation_options/" class="md-nav__link">
+        Allocation options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../documentation/SLURM_usage/slurm_variables/" class="md-nav__link">
+        Special variables
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../documentation/apptainer/" class="md-nav__link">
+        Apptainer
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Coding Best Practices
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Coding Best Practices" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Coding Best Practices
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../coding_best_practices/best_practices/" class="md-nav__link">
+        Coding Best Practices
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Checklists
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Checklists" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Checklists
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../checklists/checklist_courses_cluster/" class="md-nav__link">
+        Prepare a course checklist
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-outcomes" class="md-nav__link">
+    Learning outcomes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#material" class="md-nav__link">
+    Material
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    Exercises
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#login-to-remote-and-start-an-interactive-session" class="md-nav__link">
+    Login to remote and start an interactive session
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pulling-an-image" class="md-nav__link">
+    Pulling an image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executing-an-image" class="md-nav__link">
+    Executing an image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mounting-with-apptainer" class="md-nav__link">
+    Mounting with Apptainer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interactive-shell" class="md-nav__link">
+    Interactive shell
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-bioinformatics-example-extra" class="md-nav__link">
+    A bioinformatics example (extra)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://gitlab.bioinformatics.unibe.ch/docs/cluster-docs/edit/master/docs/tutorials/containers/apptainer.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+  <h1>Apptainer</h1>
+
+<h2 id="learning-outcomes">Learning outcomes</h2>
+<p><strong>After having completed this chapter you will be able to:</strong></p>
+<ul>
+<li>Login to a remote machine with <code>ssh</code></li>
+<li>Use <code>apptainer pull</code> to convert an image from dockerhub to the &lsquo;apptainer image format&rsquo; (<code>.sif</code>)</li>
+<li>Execute a apptainer container</li>
+<li>Explain the difference in default mounting behaviour between <code>docker</code> and <code>apptainer</code></li>
+<li>Use <code>apptainer shell</code> to generate an interactive shell inside a <code>.sif</code> image</li>
+<li>Search and use images with both <code>docker</code> and <code>apptainer</code> from <a href="https://bioconda.github.io/index.html">bioconda</a></li>
+</ul>
+<h2 id="material">Material</h2>
+<p><a class="md-button" href="../../../assets/pdf/apptainer.pdf"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zm192 0v128h128L256 0zM64 224h24c30.9 0 56 25.1 56 56s-25.1 56-56 56h-8v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V240c0-8.8 7.2-16 16-16zm24 80c13.3 0 24-10.7 24-24s-10.7-24-24-24h-8v48h8zm72-64c0-8.8 7.2-16 16-16h24c26.5 0 48 21.5 48 48v64c0 26.5-21.5 48-48 48h-24c-8.8 0-16-7.2-16-16V240zm32 112h8c8.8 0 16-7.2 16-16v-64c0-8.8-7.2-16-16-16h-8v96zm96-128h48c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32v32h32c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32v48c0 8.8-7.2 16-16 16s-16-7.2-16-16V240c0-8.8 7.2-16 16-16z"/></svg></span> Download the presentation</a></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/d3kxtzUutjk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<ul>
+<li><a href="https://pythonspeed.com/articles/containers-filesystem-data-processing/">An article on Docker vs Apptainer</a></li>
+<li><a href="https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#containerization-of-conda-based-workflows">Using conda and containers with snakemake</a></li>
+</ul>
+<h2 id="exercises">Exercises</h2>
+<h3 id="login-to-remote-and-start-an-interactive-session">Login to remote and start an interactive session</h3>
+<p>Login to the IBU cluster with <code>ssh</code>:</p>
+<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span><span class="o">[</span>USERNAME<span class="o">]</span>@binfservms01.unibe.ch
+</code></pre></div>
+<p>Now you are on the head node, which is not meant for running jobs. Therefore, we need to start an interactive session on a compute node. We do this with <code>srun</code>:</p>
+<div class="highlight"><pre><span></span><code>srun<span class="w"> </span>--time<span class="w"> </span><span class="m">1</span>:0:0<span class="w"> </span>--pty<span class="w"> </span>bash
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Apptainer only availabe on compute nodes</p>
+<p>Note that <code>apptainer</code> is not available on the head node, so you would always need to start an interactive session on a compute node or submit a job to the cluster. More about submitting jobs <a href="../../SLURM_tutorial/">here</a>.</p>
+</div>
+<h3 id="pulling-an-image">Pulling an image</h3>
+<p>Apptainer can take several image formats (e.g. a <code>docker</code> image), and convert them into it&rsquo;s own <code>.sif</code> format. Unlike <code>docker</code> this image doesn&rsquo;t live in a local image cache, but it&rsquo;s stored as an actual file.</p>
+<p><strong>Exercise:</strong> On the remote server, pull the docker image that has the adjusted default <code>CMD</code> that we have pushed to dockerhub <a href="../dockerfiles/#using-cmd">in this exercise</a> (<code>ubuntu-figlet-df:v3</code>) with <code>apptainer pull</code>. The syntax is:</p>
+<div class="highlight"><pre><span></span><code>apptainer<span class="w"> </span>pull<span class="w"> </span>docker://<span class="o">[</span>USER<span class="w"> </span>NAME<span class="o">]</span>/<span class="o">[</span>IMAGE<span class="w"> </span>NAME<span class="o">]</span>:<span class="o">[</span>TAG<span class="o">]</span>
+</code></pre></div>
+<details class="done">
+<summary>Answer</summary>
+<p><div class="highlight"><pre><span></span><code>apptainer<span class="w"> </span>pull<span class="w"> </span>docker://<span class="o">[</span>USER<span class="w"> </span>NAME<span class="o">]</span>/ubuntu-figlet:v3
+</code></pre></div>
+This will result in a file called <code>ubuntu-figlet_v3.sif</code></p>
+</details>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you weren&rsquo;t able to push the image in the previous exercises to your docker hub, you can use <code>geertvangeest</code> as username to pull the image.</p>
+</div>
+<h3 id="executing-an-image">Executing an image</h3>
+<p>These <code>.sif</code> files can be run as standalone executables:</p>
+<div class="highlight"><pre><span></span><code>./ubuntu-figlet_v3.sif
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is shorthand for:</p>
+<div class="highlight"><pre><span></span><code>apptainer<span class="w"> </span>run<span class="w"> </span>ubuntu-figlet_v3.sif
+</code></pre></div>
+</div>
+<p>And you can overwrite the default command like this:</p>
+<div class="highlight"><pre><span></span><code>apptainer<span class="w"> </span>run<span class="w"> </span><span class="o">[</span>IMAGE<span class="w"> </span>NAME<span class="o">]</span>.sif<span class="w"> </span><span class="o">[</span>COMMAND<span class="o">]</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In this case, you can also use</p>
+<div class="highlight"><pre><span></span><code>./<span class="o">[</span>IMAGE<span class="w"> </span>NAME<span class="o">]</span>.sif<span class="w"> </span><span class="o">[</span>COMMAND<span class="o">]</span>
+</code></pre></div>
+<p>However, most applications require <code>apptainer run</code>. Especially if you want to provide options like <code>--bind</code> (for mounting directories). </p>
+</div>
+<p><strong>Exercise:</strong> Run the <code>.sif</code> file without a command, and with a command that runs <code>figlet</code>. Do you get expected output? Do the same for the python or R image you&rsquo;ve created in the previous chapter.</p>
+<div class="admonition note">
+<p class="admonition-title">Entrypoint and apptainer</p>
+<p>The <code>daterange</code> image has an entrypoint set, and <code>apptainer run</code> does not overwrite it. In order to ignore both the entrypoint and cmd use <code>apptainer exec</code>.  </p>
+</div>
+<details class="done">
+<summary>Answer</summary>
+<p>Running it without a command (<code>./ubuntu-figlet_v3.sif</code>) should give:</p>
+<p><div class="highlight"><pre><span></span><code>__  __         _                                                 _        _
+|  \/  |_   _  (_)_ __ ___   __ _  __ _  ___  __      _____  _ __| | _____| |
+| |\/| | | | | | | &#39;_ ` _ \ / _` |/ _` |/ _ \ \ \ /\ / / _ \| &#39;__| |/ / __| |
+| |  | | |_| | | | | | | | | (_| | (_| |  __/  \ V  V / (_) | |  |   &lt;\__ \_|
+|_|  |_|\__, | |_|_| |_| |_|\__,_|\__, |\___|   \_/\_/ \___/|_|  |_|\_\___(_)
+       |___/                     |___/
+</code></pre></div>
+Which is the default command that we changed in the <code>Dockerfile</code>.</p>
+<p>Running with a another <code>figlet</code> command:</p>
+<div class="highlight"><pre><span></span><code>./ubuntu-figlet_v3.sif<span class="w"> </span>figlet<span class="w"> </span><span class="s1">&#39;Something else&#39;</span>
+</code></pre></div>
+<p>Should give:</p>
+<div class="highlight"><pre><span></span><code>____                       _   _     _                    _
+/ ___|  ___  _ __ ___   ___| |_| |__ (_)_ __   __ _    ___| |___  ___
+\___ \ / _ \| &#39;_ ` _ \ / _ \ __| &#39;_ \| | &#39;_ \ / _` |  / _ \ / __|/ _ \
+___) | (_) | | | | | |  __/ |_| | | | | | | | (_| | |  __/ \__ \  __/
+|____/ \___/|_| |_| |_|\___|\__|_| |_|_|_| |_|\__, |  \___|_|___/\___|
+                                             |___/
+</code></pre></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">R</label><label for="__tabbed_1_2">Python</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Pulling the <code>search_biomart_datasets</code> image:</p>
+<div class="highlight"><pre><span></span><code>apptainer<span class="w"> </span>pull<span class="w"> </span>docker://<span class="o">[</span>USER<span class="w"> </span>NAME<span class="o">]</span>/search_biomart_datasets:v1
+</code></pre></div>
+<p>Running it without command:</p>
+<div class="highlight"><pre><span></span><code>./search_biomart_datasets_v1.sif
+</code></pre></div>
+<p>Running with a command:</p>
+<div class="highlight"><pre><span></span><code>./search_biomart_datasets_v1.sif<span class="w"> </span>--pattern<span class="w"> </span>sapiens
+</code></pre></div>
+<p>To overwrite both entrypoint and the command:</p>
+<div class="highlight"><pre><span></span><code>apptainer<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>search_biomart_datasets_v1.sif<span class="w"> </span>search_biomart_datasets.R<span class="w"> </span>--pattern<span class="w"> </span><span class="s2">&quot;(R|r)at&quot;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>Pulling the <code>daterange.py</code> image:</p>
+<div class="highlight"><pre><span></span><code>apptainer<span class="w"> </span>pull<span class="w"> </span>docker://<span class="o">[</span>USER<span class="w"> </span>NAME<span class="o">]</span>/daterange:v1
+</code></pre></div>
+<p>Running it without command:</p>
+<div class="highlight"><pre><span></span><code>./daterange_v1.sif
+</code></pre></div>
+<p>Running with a command:</p>
+<div class="highlight"><pre><span></span><code>./daterange_v1.sif<span class="w"> </span>--date<span class="w"> </span><span class="m">20221005</span>
+</code></pre></div>
+<p>To overwrite both entrypoint and the command:</p>
+<div class="highlight"><pre><span></span><code>apptainer<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>daterange_v1.sif<span class="w"> </span>daterange.py<span class="w"> </span>--date<span class="w"> </span><span class="m">20221005</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+<h3 id="mounting-with-apptainer">Mounting with Apptainer</h3>
+<p>Apptainer is also different from Docker in the way it handles mounting. By default, Apptainer binds your home directory and a number of paths in the root directory to the container. This results in behaviour that is almost like if you are working on the directory structure of the host.  </p>
+<div class="admonition note">
+<p class="admonition-title">If your directory is not mounted by default</p>
+<p>It depends on the apptainer settings whether most directories are mounted by default to the container. If your directory is not mounted, you can do that with the <code>--bind</code> option of <code>apptainer exec</code>:</p>
+<div class="highlight"><pre><span></span><code>apptainer<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--bind<span class="w"> </span>/my/dir/to/mount/<span class="w"> </span><span class="o">[</span>IMAGE<span class="w"> </span>NAME<span class="o">]</span>.sif<span class="w"> </span><span class="o">[</span>COMMAND<span class="o">]</span>
+</code></pre></div>
+</div>
+<p>Running the command <code>pwd</code> (full name of current working directory) will therefore result in a path on the host machine:</p>
+<div class="highlight"><pre><span></span><code>./ubuntu-figlet_v3.sif<span class="w"> </span><span class="nb">pwd</span>
+</code></pre></div>
+<p><strong>Exercise:</strong> Run the above command. What is the output? How would the output look like if you would run a similar command with Docker?</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>A similar Docker command would look like (run this on your local computer):</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>ubuntu-figlet:v3<span class="w"> </span><span class="nb">pwd</span>
+</code></pre></div>
+</div>
+<details class="done">
+<summary>Answer</summary>
+<p>The output of <code>./ubuntu-figlet_v3.sif pwd</code> is the current directory on the host: i.e. <code>/home/username</code> if you have it in your home directory. The output of <code>docker run --rm ubuntu-figlet:v3 pwd</code> (on the local host) would be <code>/</code>, which is the default workdir (root directory) of the container. As we did not mount any host directory, this directory exists only within the container (i.e. separated from the host).</p>
+</details>
+<h3 id="interactive-shell">Interactive shell</h3>
+<p>If you want to debug or inspect an image, it can be helpful to have a shell inside the container. You can do that with <code>apptainer shell</code>:</p>
+<div class="highlight"><pre><span></span><code>apptainer<span class="w"> </span>shell<span class="w"> </span>ubuntu-figlet_v3.sif
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To exit the shell type <code>exit</code>.</p>
+</div>
+<p><strong>Exercise:</strong> Can you run <code>figlet</code> inside this shell?</p>
+<details class="done">
+<summary>Answer</summary>
+<p>Yes:
+<div class="highlight"><pre><span></span><code>Apptainer&gt; figlet test
+ _            _
+| |_ ___  ___| |_
+| __/ _ \/ __| __|
+| ||  __/\__ \ |_
+ \__\___||___/\__|
+</code></pre></div></p>
+</details>
+<p>During the lecture you have learned that apptainer takes over the user privileges of the user on the host. You can get user information with command like <code>whoami</code>, <code>id</code>, <code>groups</code> etc.</p>
+<p><strong>Exercise:</strong> Run the <code>figlet</code> container interactively. Do you have the same user privileges as if you were on the host? How is that with <code>docker</code>?</p>
+<details class="done">
+<summary>Answer</summary>
+<p>A command like <code>whoami</code> will result in your username printed at stdout:</p>
+<div class="highlight"><pre><span></span><code>Apptainer&gt; whoami
+myusername
+Apptainer&gt; id
+uid=1030(myusername) gid=1031(myusername) groups=1031(myusername),1001(condausers)
+Apptainer&gt; groups
+myusername condausers
+</code></pre></div>
+<p>With apptainer, you have the same privileges inside the apptainer container as on the host. If you do this in the docker container (based on the same image), you&rsquo;ll get output like this:</p>
+<div class="highlight"><pre><span></span><code>root@a3d6e59dc19d:/# whoami
+root
+root@a3d6e59dc19d:/# groups
+root
+root@a3d6e59dc19d:/# id
+uid=0(root) gid=0(root) groups=0(root)
+</code></pre></div>
+</details>
+<h3 id="a-bioinformatics-example-extra">A bioinformatics example (extra)</h3>
+<p>All bioconda packages also have a pre-built container. Have a look at the <a href="https://bioconda.github.io/index.html">bioconda website</a>, and search for <code>fastqc</code>. In the search results, click on the appropriate record (i.e. package &lsquo;fastqc&rsquo;). Now, scroll down and find the namespace and tag for the latest fastqc image. Now we can pull it with apptainer like this:</p>
+<div class="highlight"><pre><span></span><code>apptainer<span class="w"> </span>pull<span class="w"> </span>docker://quay.io/biocontainers/fastqc:0.11.9--hdfd78af_1
+</code></pre></div>
+<p>Let&rsquo;s test the image. Download some sample reads first:</p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>reads
+<span class="nb">cd</span><span class="w"> </span>reads
+wget<span class="w"> </span>https://introduction-containers.s3.eu-central-1.amazonaws.com/ecoli_reads.tar.gz
+tar<span class="w"> </span>-xzvf<span class="w"> </span>ecoli_reads.tar.gz
+rm<span class="w"> </span>ecoli_reads.tar.gz
+</code></pre></div>
+<p>Now you can simply run the image as an executable preceding the commands you would like to run within the container. E.g. running <code>fastqc</code> would look like:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span>
+./fastqc_0.11.9--hdfd78af_1.sif<span class="w"> </span>fastqc<span class="w"> </span>./reads/ecoli_*.fastq.gz
+</code></pre></div>
+<p>This will result in <code>html</code> files in the directory <code>./reads</code>. These are quality reports for the sequence reads. If you&rsquo;d like to view them, you can download them with <code>scp</code> or e.g. <a href="https://filezilla-project.org/">FileZilla</a>, and view them with your local browser.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../dockerfiles/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Dockerfiles" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Dockerfiles
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../gitlab/gitlab/" class="md-footer__link md-footer__link--next" aria-label="Next: Set up" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Set up
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs"], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.8492ddcf.min.js"></script>
+      
+    
+  </body>
+</html>
